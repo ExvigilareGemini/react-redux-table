@@ -1,16 +1,18 @@
 import React from "react";
+import Header from "./components/Header";
 import TableConstructor from "./components/TableConstructor";
-import { headersArray, rowsContent } from "../datas/mock";
 
 export default function Table(props) {
   return (
-    <table className="rrtable">
-      {/* Header */}
-      <TableConstructor
-        headersArray={headersArray}
-        rowsContent={rowsContent}
-      />
-      {/* Footer */}
-    </table>
+    <>
+      <Header title={props.title} filter={props.filter} entriesSelector={props.entriesSelector} />
+      <table className="rrtable">
+        <TableConstructor
+          headersArray={props.headersArray}
+          rowsContent={props.rowsContent}
+        />
+        {/* Footer */}
+      </table>
+    </>
   );
 }
