@@ -1,6 +1,6 @@
 import React from "react";
-import TableBody from "./TableConstructor/TableBody";
-import TableHeader from "./TableConstructor/TableHeader";
+import TableBody from "./components/TableBody";
+import TableHeader from "./components/TableHeader";
 
 /** Functionnal component, render the table
  *

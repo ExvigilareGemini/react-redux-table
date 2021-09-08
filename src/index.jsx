@@ -13,6 +13,8 @@ const App = () => {
         title="Current Employees"
         filter={true}
         entriesSelector={true}
+        showEntries={true}
+        pageSelector={true}
       />
     </>
   );
