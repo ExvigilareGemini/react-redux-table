@@ -9,17 +9,26 @@ export const rrtableReducer = (state, action) => {
     case INCREASE_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.currentPage + 1,
+        rrtable: {
+          ...state.rrtable,
+          currentPage: action.currentPage + 1,
+        },
       };
     case DECREASE_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.currentPage - 1,
+        rrtable: {
+          ...state.rrtable,
+          currentPage: action.currentPage - 1,
+        },
       };
     case SET_NUMBER_OF_LIGN_TO_DISPLAY:
       return {
         ...state,
-        nbrOfLignToDisplay: action.nbrOfLignToDisplay,
+        rrtable: {
+          ...state.rrtable,
+          nbrOfLignToDisplay: action.nbrOfLignToDisplay,
+        },
       };
     default:
       return state;

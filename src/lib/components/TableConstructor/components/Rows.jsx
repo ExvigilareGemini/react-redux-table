@@ -21,7 +21,10 @@ function Rows(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { nbrOfLignToDisplay: state.nbrOfLignToDisplay };
+  return {
+    nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay,
+    currentPage: state.rrtable.currentPage,
+  };
 };
 
 export default connect(mapStateToProps, null)(Rows);

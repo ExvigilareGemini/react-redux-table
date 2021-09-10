@@ -111,7 +111,7 @@ export const rowsContent = [
     { cellValue: "51", category: "zipCode" },
   ],
   [
-    { cellValue: "Tony", category: "firstName" },
+    { cellValue: "Ten", category: "firstName" },
     { cellValue: "Stark", category: "lastName" },
     { cellValue: "06/01/2000", category: "startDate" },
     { cellValue: "24/01/2010", category: "department" },
@@ -122,7 +122,7 @@ export const rowsContent = [
     { cellValue: "74", category: "zipCode" },
   ],
   [
-    { cellValue: "Peter", category: "firstName" },
+    { cellValue: "Eleven", category: "firstName" },
     { cellValue: "Parker", category: "lastName" },
     { cellValue: "19/12/1982", category: "startDate" },
     { cellValue: "23/03/1981", category: "department" },

@@ -44,7 +44,7 @@ function Header(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { nbrOfLignToDisplay: state.nbrOfLignToDisplay };
+  return { nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay };
 };
 
 const mapDispatchToProps = (dispatch) => {

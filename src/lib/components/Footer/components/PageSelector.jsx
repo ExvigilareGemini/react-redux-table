@@ -37,9 +37,9 @@ function PageSelector(props) {
 
 const mapStateToProps = (state) => {
   return {
-    currentPage: state.currentPage,
-    numberOfRows: state.numberOfRows,
-    nbrOfLignToDisplay: state.nbrOfLignToDisplay,
+    currentPage: state.rrtable.currentPage,
+    numberOfRows: state.rrtable.numberOfRows,
+    nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay,
   };
 };
 

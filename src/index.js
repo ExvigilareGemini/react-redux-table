@@ -7,9 +7,11 @@ import { rrtableReducer } from "./lib/redux/reducer/rrtable-reducer";
 import { headersArray, rowsContent } from "./datas/mock";
 
 const preloadedState = {
-  currentPage: 1,
-  numberOfRows: rowsContent.length,
-  nbrOfLignToDisplay: 10,
+  rrtable: {
+    currentPage: 1,
+    numberOfRows: rowsContent.length,
+    nbrOfLignToDisplay: 10,
+  },
 };
 
 const store = configureStore({
