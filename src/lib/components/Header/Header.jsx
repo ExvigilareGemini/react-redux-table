@@ -22,7 +22,10 @@ function Header(props) {
       {entriesSelector && (
         <label>
           Show
-          <select defaultValue={nbrOfLignToDisplay} onChange={(e) => changeLignNumber(parseInt(e.target.value))}>
+          <select
+            defaultValue={nbrOfLignToDisplay}
+            onChange={(e) => changeLignNumber(parseInt(e.target.value))}
+          >
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>

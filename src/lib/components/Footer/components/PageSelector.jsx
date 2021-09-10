@@ -12,11 +12,11 @@ function PageSelector(props) {
     numberOfRows,
     decreaseCurrentPage,
     increaseCurrentPage,
+    nbrOfLignToDisplay,
   } = props;
 
-  const x = 49; //nombre total de lignes de tableau
-  const y = 10; //nombre de lignes affichée dans le tab
-  const p = Math.ceil(numberOfRows / y); //nombre total de page
+  // total number of pages
+  const p = Math.ceil(numberOfRows / nbrOfLignToDisplay);
 
   function previousButton() {
     decreaseCurrentPage(currentPage);
@@ -36,7 +36,11 @@ function PageSelector(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { currentPage: state.currentPage, numberOfRows: state.numberOfRows };
+  return {
+    currentPage: state.currentPage,
+    numberOfRows: state.numberOfRows,
+    nbrOfLignToDisplay: state.nbrOfLignToDisplay,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
