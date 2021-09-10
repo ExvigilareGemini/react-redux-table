@@ -155,17 +155,6 @@ export const rowsContent = [
     { cellValue: "74", category: "zipCode" },
   ],
   [
-    { cellValue: "Peter", category: "firstName" },
-    { cellValue: "Parker", category: "lastName" },
-    { cellValue: "19/12/1982", category: "startDate" },
-    { cellValue: "23/03/1981", category: "department" },
-    { cellValue: "Sales", category: "dateOfBirth" },
-    { cellValue: "Yes", category: "street" },
-    { cellValue: "No", category: "city" },
-    { cellValue: "Idaho", category: "state" },
-    { cellValue: "24", category: "zipCode" },
-  ],
-  [
     { cellValue: "Dr.", category: "firstName" },
     { cellValue: "Strange", category: "lastName" },
     { cellValue: "20/06/1970", category: "startDate" },
@@ -892,8 +881,8 @@ export const rowsContent = [
     { cellValue: "24", category: "zipCode" },
   ],
   [
-    { cellValue: "Dr.", category: "firstName" },
-    { cellValue: "Strange", category: "lastName" },
+    { cellValue: "Last", category: "firstName" },
+    { cellValue: "Last", category: "lastName" },
     { cellValue: "20/06/1970", category: "startDate" },
     { cellValue: "05/07/2005", category: "department" },
     { cellValue: "Marketing", category: "dateOfBirth" },

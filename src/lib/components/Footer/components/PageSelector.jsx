@@ -28,9 +28,20 @@ function PageSelector(props) {
 
   return (
     <>
-      <button onClick={previousButton}>Previous</button>
+      <button
+        onClick={previousButton}
+        disabled={currentPage === 0 ? true : false}
+      >
+        Previous
+      </button>
       {p >= 6 ? <p>bigger</p> : <p>smaller</p>}
-      <button onClick={nextButton}>Next</button>
+
+      <button
+        onClick={nextButton}
+        disabled={currentPage === p - 1 ? true : false}
+      >
+        Next
+      </button>
     </>
   );
 }

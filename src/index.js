@@ -8,7 +8,7 @@ import { headersArray, rowsContent } from "./datas/mock";
 
 const preloadedState = {
   rrtable: {
-    currentPage: 1,
+    currentPage: 0,
     numberOfRows: rowsContent.length,
     nbrOfLignToDisplay: 10,
   },

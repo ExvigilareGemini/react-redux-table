@@ -3,9 +3,13 @@ import { connect } from "react-redux";
 import Cells from "./Cells";
 
 function Rows(props) {
-  const { rowsContent, headersArray, nbrOfLignToDisplay } = props;
+  const { rowsContent, headersArray, nbrOfLignToDisplay, currentPage } = props;
 
-  const rowsToDisplay = rowsContent.slice(0, nbrOfLignToDisplay);
+  const actualNbrOfFirstLign = currentPage * nbrOfLignToDisplay;
+  const rowsToDisplay = rowsContent.slice(
+    actualNbrOfFirstLign,
+    actualNbrOfFirstLign + nbrOfLignToDisplay
+  );
 
   return (
     <>
