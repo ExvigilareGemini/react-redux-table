@@ -1,10 +1,12 @@
 import React from "react";
 
 export default function TableHeader(props) {
+  const { headersArray } = props;
+
   return (
     <thead className="rrtable-table-header">
       <tr className="rrtable-row">
-        {props.headersArray.map((el, index) => {
+        {headersArray.map((el, index) => {
           return (
             <th key={el.title + index} className="cell">
               {el.title}

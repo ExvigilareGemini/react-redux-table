@@ -12,8 +12,8 @@ export const headersArray = [
 
 export const rowsContent = [
   [
-    { cellValue: "Tony", category: "firstName" },
-    { cellValue: "Stark", category: "lastName" },
+    { cellValue: "First", category: "firstName" },
+    { cellValue: "First", category: "lastName" },
     { cellValue: "06/01/2000", category: "startDate" },
     { cellValue: "24/01/2010", category: "department" },
     { cellValue: "Engineering", category: "dateOfBirth" },
