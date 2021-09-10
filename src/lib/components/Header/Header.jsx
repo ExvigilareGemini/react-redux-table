@@ -1,13 +1,28 @@
 import React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { setNumberOfLignToDisplay } from "../../redux/actions/rrtable-actions";
 
-export default function Header(props) {
+function Header(props) {
+  const {
+    title,
+    entriesSelector,
+    filter,
+    nbrOfLignToDisplay,
+    setNumberOfLignToDisplay,
+  } = props;
+
+  function changeLignNumber(value) {
+    setNumberOfLignToDisplay(value);
+  }
+
   return (
     <>
-      {props.title && <h1 className="rrtable-title">{props.title}</h1>}
-      {props.entriesSelector && (
+      {title && <h1 className="rrtable-title">{title}</h1>}
+      {entriesSelector && (
         <label>
           Show
-          <select>
+          <select defaultValue={nbrOfLignToDisplay} onChange={(e) => changeLignNumber(parseInt(e.target.value))}>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -15,7 +30,7 @@ export default function Header(props) {
           </select>
         </label>
       )}
-      {props.filter && (
+      {filter && (
         <label>
           Search
           <input type="search"></input>
@@ -24,3 +39,18 @@ export default function Header(props) {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return { nbrOfLignToDisplay: state.nbrOfLignToDisplay };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      setNumberOfLignToDisplay,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
