@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Cells from "./Cells";
@@ -17,9 +17,11 @@ function Rows(props) {
 
   const actualNbrOfFirstLign = currentPage * numberOfLignToDisplay;
 
-  if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
-    setCurrentPage(numberOfPages - 1);
-  }
+  useEffect(() => {
+    if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
+      setCurrentPage(numberOfPages - 1);
+    }
+  });
 
   const rowsToDisplay = rowsContent.slice(
     actualNbrOfFirstLign,
