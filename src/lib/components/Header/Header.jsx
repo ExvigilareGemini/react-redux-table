@@ -8,12 +8,13 @@ function Header(props) {
     title,
     entriesSelector,
     filter,
-    nbrOfLignToDisplay,
-    setNumberOfLignToDisplay,
+    setNumberOfPages,
+    rowsNumber,
+    numberOfLignToDisplay,
   } = props;
 
   function changeLignNumber(value) {
-    setNumberOfLignToDisplay(value);
+    setNumberOfPages(value, rowsNumber );
   }
 
   return (
@@ -23,7 +24,7 @@ function Header(props) {
         <label>
           Show
           <select
-            defaultValue={nbrOfLignToDisplay}
+            defaultValue={numberOfLignToDisplay}
             onChange={(e) => changeLignNumber(parseInt(e.target.value))}
           >
             {entriesSelector.map((el, index) => {
@@ -47,7 +48,10 @@ function Header(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay };
+  return {
+    rowsNumber: state.rrtable.rowsNumber,
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

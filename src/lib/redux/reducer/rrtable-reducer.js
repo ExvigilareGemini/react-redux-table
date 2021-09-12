@@ -1,8 +1,9 @@
 import {
+  INITIATE_STATE,
+  SET_CURRENT_PAGE,
   INCREASE_CURRENT_PAGE,
   DECREASE_CURRENT_PAGE,
   SET_NUMBER_OF_PAGES,
-  INITIATE_STATE,
 } from "../constants/rrtable-types";
 
 import { initialState } from "../initialState/rrtable-initialState";
@@ -18,6 +19,15 @@ export const rrtableReducer = (state = initialState, action) => {
           rowsNumber: action.rowsNumber,
           numberOfLignToDisplay: action.numberOfLignToDisplay,
           numberOfPages: action.numberOfPages,
+        },
+      };
+
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        rrtable: {
+          ...state.rrtable,
+          currentPage: action.currentPage,
         },
       };
     case INCREASE_CURRENT_PAGE:
@@ -41,6 +51,7 @@ export const rrtableReducer = (state = initialState, action) => {
         ...state,
         rrtable: {
           ...state.rrtable,
+          numberOfLignToDisplay: action.numberOfLignToDisplay,
           numberOfPages: action.numberOfPages,
         },
       };

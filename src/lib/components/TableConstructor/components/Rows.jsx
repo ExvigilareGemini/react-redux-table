@@ -1,11 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import Cells from "./Cells";
+import { setCurrentPage } from "../../../redux/actions/rrtable-actions";
 
 function Rows(props) {
-  const { rowsContent, headersArray, numberOfLignToDisplay, currentPage } = props;
+  const {
+    rowsContent,
+    headersArray,
+    numberOfLignToDisplay,
+    currentPage,
+    numberOfPages,
+    rowsNumber,
+    setCurrentPage,
+  } = props;
 
   const actualNbrOfFirstLign = currentPage * numberOfLignToDisplay;
+
+  if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
+    setCurrentPage(numberOfPages - 1);
+  }
+
   const rowsToDisplay = rowsContent.slice(
     actualNbrOfFirstLign,
     actualNbrOfFirstLign + numberOfLignToDisplay
@@ -28,7 +43,18 @@ const mapStateToProps = (state) => {
   return {
     numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
     currentPage: state.rrtable.currentPage,
+    numberOfPages: state.rrtable.numberOfPages,
+    rowsNumber: state.rrtable.rowsNumber,
   };
 };
 
-export default connect(mapStateToProps, null)(Rows);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      setCurrentPage,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Rows);
