@@ -1,15 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 function PageNumberButton(props) {
-  const { numberOfPages } = props;
+  const { numberOfPages, currentPage } = props;
 
   return (
     <>
       {Array(numberOfPages)
         .fill(null)
         .map((el, index) => {
-          return <button key={index}>{index}</button>;
+          return (
+            <button
+              className={
+                index === currentPage
+                  ? "pageNumberButton-selected"
+                  : "pageNumberButton"
+              }
+              key={index + 1}
+            >
+              {index + 1}
+            </button>
+          );
         })}
     </>
   );
@@ -18,6 +29,7 @@ function PageNumberButton(props) {
 const mapStateToProps = (state) => {
   return {
     numberOfPages: state.rrtable.numberOfPages,
+    currentPage: state.rrtable.currentPage,
   };
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PageSelector from "./components/PageSelector";
+import '../../style/Footer.css'
 
 function Footer(props) {
   const {
