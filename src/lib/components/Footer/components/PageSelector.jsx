@@ -5,6 +5,7 @@ import {
   increaseCurrentPage,
   decreaseCurrentPage,
 } from "../../../redux/actions/rrtable-actions";
+import PageNumberButton from "./PageNumberButton";
 
 function PageSelector(props) {
   const {
@@ -30,7 +31,8 @@ function PageSelector(props) {
       >
         Previous
       </button>
-      {numberOfPages >= 6 ? <p>bigger</p> : <p>smaller</p>}
+
+      <PageNumberButton />
 
       <button
         onClick={nextButton}
@@ -45,7 +47,7 @@ function PageSelector(props) {
 const mapStateToProps = (state) => {
   return {
     currentPage: state.rrtable.currentPage,
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+    nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay,
     numberOfPages: state.rrtable.numberOfPages,
   };
 };
