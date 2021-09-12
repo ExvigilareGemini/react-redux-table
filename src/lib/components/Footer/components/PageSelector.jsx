@@ -9,14 +9,10 @@ import {
 function PageSelector(props) {
   const {
     currentPage,
-    numberOfRows,
     decreaseCurrentPage,
     increaseCurrentPage,
-    nbrOfLignToDisplay,
+    numberOfPages,
   } = props;
-
-  // total number of pages
-  const p = Math.ceil(numberOfRows / nbrOfLignToDisplay);
 
   function previousButton() {
     decreaseCurrentPage(currentPage);
@@ -34,11 +30,11 @@ function PageSelector(props) {
       >
         Previous
       </button>
-      {p >= 6 ? <p>bigger</p> : <p>smaller</p>}
+      {numberOfPages >= 6 ? <p>bigger</p> : <p>smaller</p>}
 
       <button
         onClick={nextButton}
-        disabled={currentPage === p - 1 ? true : false}
+        disabled={currentPage === numberOfPages - 1 ? true : false}
       >
         Next
       </button>
@@ -49,8 +45,8 @@ function PageSelector(props) {
 const mapStateToProps = (state) => {
   return {
     currentPage: state.rrtable.currentPage,
-    numberOfRows: state.rrtable.numberOfRows,
-    nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay,
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+    numberOfPages: state.rrtable.numberOfPages,
   };
 };
 

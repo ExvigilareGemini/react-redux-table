@@ -56,6 +56,17 @@ export const rowsContent = [
     { cellValue: "74", category: "zipCode" },
   ],
   [
+    { cellValue: "Tony", category: "firstName" },
+    { cellValue: "Stark", category: "lastName" },
+    { cellValue: "06/01/2000", category: "startDate" },
+    { cellValue: "24/01/2010", category: "department" },
+    { cellValue: "Engineering", category: "dateOfBirth" },
+    { cellValue: "Street", category: "street" },
+    { cellValue: "City", category: "city" },
+    { cellValue: "West Virginia", category: "state" },
+    { cellValue: "74", category: "zipCode" },
+  ],
+  [
     { cellValue: "Peter", category: "firstName" },
     { cellValue: "Parker", category: "lastName" },
     { cellValue: "19/12/1982", category: "startDate" },
@@ -892,3 +903,5 @@ export const rowsContent = [
     { cellValue: "51", category: "zipCode" },
   ],
 ];
+
+export const entriesSelector = [10, 25, 50, 100];

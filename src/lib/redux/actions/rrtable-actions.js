@@ -1,5 +1,15 @@
 import * as types from "../constants/rrtable-types";
 
+export const initiateState = (rowsNumber, numberOfLignToDisplay) => {
+  const numberOfPages = Math.ceil(rowsNumber/numberOfLignToDisplay)
+  return {
+    type: types.INITIATE_STATE,
+    rowsNumber,
+    numberOfLignToDisplay,
+    numberOfPages,
+  };
+};
+
 export const increaseCurrentPage = (currentPage) => {
   return {
     type: types.INCREASE_CURRENT_PAGE,
@@ -14,9 +24,9 @@ export const decreaseCurrentPage = (currentPage) => {
   };
 };
 
-export const setNumberOfLignToDisplay = (nbrOfLignToDisplay) => {
+export const setNumberOfPages = (nbrOfLignToDisplay) => {
   return {
-    type: types.SET_NUMBER_OF_LIGN_TO_DISPLAY,
+    type: types.SET_NUMBER_OF_PAGES,
     nbrOfLignToDisplay,
   };
 };

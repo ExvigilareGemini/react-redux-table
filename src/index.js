@@ -4,19 +4,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import Table from "./lib/Table";
 import { rrtableReducer } from "./lib/redux/reducer/rrtable-reducer";
-import { headersArray, rowsContent } from "./datas/mock";
-
-const preloadedState = {
-  rrtable: {
-    currentPage: 0,
-    numberOfRows: rowsContent.length,
-    nbrOfLignToDisplay: 10,
-  },
-};
+import { headersArray, rowsContent, entriesSelector } from "./datas/mock";
 
 const store = configureStore({
   reducer: rrtableReducer,
-  preloadedState,
 });
 
 const App = () => {
@@ -28,7 +19,7 @@ const App = () => {
           rowsContent={rowsContent}
           title="Current Employees"
           filter={true}
-          entriesSelector={true}
+          entriesSelector={entriesSelector}
           showEntries={true}
           pageSelector={true}
         />

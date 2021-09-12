@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import Cells from "./Cells";
 
 function Rows(props) {
-  const { rowsContent, headersArray, nbrOfLignToDisplay, currentPage } = props;
+  const { rowsContent, headersArray, numberOfLignToDisplay, currentPage } = props;
 
-  const actualNbrOfFirstLign = currentPage * nbrOfLignToDisplay;
+  const actualNbrOfFirstLign = currentPage * numberOfLignToDisplay;
   const rowsToDisplay = rowsContent.slice(
     actualNbrOfFirstLign,
-    actualNbrOfFirstLign + nbrOfLignToDisplay
+    actualNbrOfFirstLign + numberOfLignToDisplay
   );
 
   return (
@@ -26,7 +26,7 @@ function Rows(props) {
 
 const mapStateToProps = (state) => {
   return {
-    nbrOfLignToDisplay: state.rrtable.nbrOfLignToDisplay,
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
     currentPage: state.rrtable.currentPage,
   };
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { setNumberOfLignToDisplay } from "../../redux/actions/rrtable-actions";
+import { setNumberOfPages } from "../../redux/actions/rrtable-actions";
 
 function Header(props) {
   const {
@@ -26,10 +26,13 @@ function Header(props) {
             defaultValue={nbrOfLignToDisplay}
             onChange={(e) => changeLignNumber(parseInt(e.target.value))}
           >
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
+            {entriesSelector.map((el, index) => {
+              return (
+                <option value={el} key={el + index}>
+                  {el}
+                </option>
+              );
+            })}
           </select>
         </label>
       )}
@@ -50,7 +53,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      setNumberOfLignToDisplay,
+      setNumberOfPages,
     },
     dispatch
   );
