@@ -1,12 +1,33 @@
 import React from "react";
+import { connect } from "react-redux";
 import PageSelector from "./components/PageSelector";
 
-export default function Footer(props) {
-  const { showEntries, pageSelector } = props;
+function Footer(props) {
+  const {
+    showEntries,
+    pageSelector,
+    rowsNumber,
+    currentPage,
+    numberOfLignToDisplay,
+  } = props;
+
+  const smallNumber = currentPage * numberOfLignToDisplay;
+  const bigNumber = (currentPage + 1) * numberOfLignToDisplay;
+
   return (
     <>
-      {showEntries && <p>Showing 1 to 10 of 16 entries</p>}
+      {showEntries && <p>Showing {smallNumber + 1} to {bigNumber > rowsNumber ? rowsNumber : bigNumber} of {rowsNumber} entries</p>}
       {pageSelector && <PageSelector />}
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+    currentPage: state.rrtable.currentPage,
+    rowsNumber: state.rrtable.rowsNumber,
+  };
+};
+
+export default connect(mapStateToProps, null)(Footer);
