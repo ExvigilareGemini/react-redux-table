@@ -14,12 +14,28 @@ import TableHeader from "./components/TableHeader";
  * @returns {JSX} The full table containing TableHeader and TableBody
  */
 export default function TableConstructor(props) {
-  const { rowsContent, headersArray } = props;
+  const {
+    rowsContent,
+    headersArray,
+    currentPage,
+    rowsNumber,
+    numberOfLignToDisplay,
+    numberOfPages,
+    setCurrentPage,
+  } = props;
 
   return (
     <>
       <TableHeader headersArray={headersArray} />
-      <TableBody headersArray={headersArray} rowsContent={rowsContent} />
+      <TableBody
+        headersArray={headersArray}
+        rowsContent={rowsContent}
+        currentPage={currentPage}
+        rowsNumber={rowsNumber}
+        numberOfLignToDisplay={numberOfLignToDisplay}
+        numberOfPages={numberOfPages}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 }

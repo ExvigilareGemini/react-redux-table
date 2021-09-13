@@ -1,9 +1,6 @@
 import React from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { setNumberOfPages } from "../../redux/actions/rrtable-actions";
 
-function Header(props) {
+export default function Header(props) {
   const {
     title,
     entriesSelector,
@@ -47,20 +44,4 @@ function Header(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    rowsNumber: state.rrtable.rowsNumber,
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      setNumberOfPages,
-    },
-    dispatch
-  );
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);

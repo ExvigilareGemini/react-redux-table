@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import Cells from "./Cells";
-import { setCurrentPage } from "../../../redux/actions/rrtable-actions";
 
-function Rows(props) {
+export default function Rows(props) {
   const {
     rowsContent,
     headersArray,
@@ -41,22 +38,3 @@ function Rows(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
-    currentPage: state.rrtable.currentPage,
-    numberOfPages: state.rrtable.numberOfPages,
-    rowsNumber: state.rrtable.rowsNumber,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      setCurrentPage,
-    },
-    dispatch
-  );
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Rows);

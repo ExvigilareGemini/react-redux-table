@@ -17,13 +17,12 @@ export default function Cells(props) {
               Error
             </td>
           );
-        } else {
-          return (
-            <td className="rrtable-cell" key={index1 + index2}>
-              {arr[indexOfCorrespondingCategory].cellValue}
-            </td>
-          );
         }
+        return (
+          <td className="rrtable-cell" key={index1 + index2}>
+            {arr[indexOfCorrespondingCategory].cellValue}
+          </td>
+        );
       })}
     </>
   );

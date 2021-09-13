@@ -1,10 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { setCurrentPage } from "../../../redux/actions/rrtable-actions";
 
-function PageNumberButton(props) {
+export default function PageNumberButton(props) {
   const { numberOfPages, currentPage, setCurrentPage } = props;
+
+  function changeCurrentPage(index) {
+    setCurrentPage(index);
+  }
 
   return (
     <>
@@ -19,7 +20,7 @@ function PageNumberButton(props) {
                   : "pageNumberButton"
               }
               key={index + 1}
-              onClick={() => setCurrentPage(index)}
+              onClick={() => changeCurrentPage(index)}
             >
               {index + 1}
             </button>
@@ -28,21 +29,3 @@ function PageNumberButton(props) {
     </>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    numberOfPages: state.rrtable.numberOfPages,
-    currentPage: state.rrtable.currentPage,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      setCurrentPage,
-    },
-    dispatch
-  );
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageNumberButton);

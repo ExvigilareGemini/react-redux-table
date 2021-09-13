@@ -1,15 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
 import PageSelector from "./components/PageSelector";
-import '../../style/Footer.css'
+import "../../style/Footer.css";
 
-function Footer(props) {
+export default function Footer(props) {
   const {
     showEntries,
     pageSelector,
     rowsNumber,
     currentPage,
     numberOfLignToDisplay,
+    numberOfPages,
+    setCurrentPage,
+    increaseCurrentPage,
+    decreaseCurrentPage,
   } = props;
 
   const smallNumber = currentPage * numberOfLignToDisplay;
@@ -17,18 +20,23 @@ function Footer(props) {
 
   return (
     <>
-      {showEntries && <p>Showing {smallNumber + 1} to {bigNumber > rowsNumber ? rowsNumber : bigNumber} of {rowsNumber} entries</p>}
-      {pageSelector && <PageSelector />}
+      {showEntries && (
+        <p>
+          Showing {smallNumber + 1} to{" "}
+          {bigNumber > rowsNumber ? rowsNumber : bigNumber} of {rowsNumber}{" "}
+          entries
+        </p>
+      )}
+      {pageSelector && (
+        <PageSelector
+          currentPage={currentPage}
+          numberOfLignToDisplay={numberOfLignToDisplay}
+          numberOfPages={numberOfPages}
+          setCurrentPage={setCurrentPage}
+          increaseCurrentPage={increaseCurrentPage}
+          decreaseCurrentPage={decreaseCurrentPage}
+        />
+      )}
     </>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
-    currentPage: state.rrtable.currentPage,
-    rowsNumber: state.rrtable.rowsNumber,
-  };
-};
-
-export default connect(mapStateToProps, null)(Footer);
