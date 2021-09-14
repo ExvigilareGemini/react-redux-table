@@ -1,4 +1,7 @@
+.page_selector {
+  display: flex;
+}
+
 .pageNumberButton-selected {
-  width: 25px;
-  height: 25px;
+  background-color: gold;
 }

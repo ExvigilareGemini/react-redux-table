@@ -1,5 +1,6 @@
 import React from "react";
 import PageNumberButton from "./PageNumberButton";
+import PageNumberButtonEllipsis from "./PageNumberButtonEllipsis";
 
 export default function PageSelector(props) {
   const {
@@ -27,11 +28,19 @@ export default function PageSelector(props) {
         Previous
       </button>
 
-      <PageNumberButton
-        currentPage={currentPage}
-        numberOfPages={numberOfPages}
-        setCurrentPage={setCurrentPage}
-      />
+      {numberOfPages > 6 ? (
+        <PageNumberButtonEllipsis
+          currentPage={currentPage}
+          numberOfPages={numberOfPages}
+          setCurrentPage={setCurrentPage}
+        />
+      ) : (
+        <PageNumberButton
+          currentPage={currentPage}
+          numberOfPages={numberOfPages}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
 
       <button
         onClick={nextButton}

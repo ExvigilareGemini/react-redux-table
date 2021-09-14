@@ -8,9 +8,11 @@ var sass = require("gulp-sass")(require("sass"));
 gulp.task("css", function () {
   return gulp
     .src("./src/assets/sass/*.scss")
+    .pipe(plugins.sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(plugins.csscomb())
     .pipe(plugins.cssbeautify({ indent: "  " }))
+    .pipe(plugins.sourcemaps.init())
     .pipe(plugins.autoprefixer())
     .pipe(gulp.dest("./src/lib/style"));
 });

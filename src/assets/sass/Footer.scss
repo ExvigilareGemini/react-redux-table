@@ -1,4 +1,10 @@
+.page_selector {
+    display: flex;
+}
 .pageNumberButton-selected {
-    height: 25px;
-    width: 25px;
+    background-color: gold;
+}
+
+.pageNumberButtonEllipsis{
+
 }

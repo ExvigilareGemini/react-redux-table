@@ -11,7 +11,7 @@ export default function Header(props) {
   } = props;
 
   function changeLignNumber(value) {
-    setNumberOfPages(value, rowsNumber );
+    setNumberOfPages(value, rowsNumber);
   }
 
   return (
@@ -43,5 +43,3 @@ export default function Header(props) {
     </>
   );
 }
-
-

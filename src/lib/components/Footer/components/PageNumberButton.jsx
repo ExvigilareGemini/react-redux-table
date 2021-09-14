@@ -3,6 +3,13 @@ import React from "react";
 export default function PageNumberButton(props) {
   const { numberOfPages, currentPage, setCurrentPage } = props;
 
+  function isSelected(index) {
+    if (index === currentPage) {
+      return "pageNumberButton-selected";
+    }
+    return "pageNumberButton";
+  }
+
   function changeCurrentPage(index) {
     setCurrentPage(index);
   }
@@ -14,11 +21,7 @@ export default function PageNumberButton(props) {
         .map((el, index) => {
           return (
             <button
-              className={
-                index === currentPage
-                  ? "pageNumberButton-selected"
-                  : "pageNumberButton"
-              }
+              className={isSelected(index)}
               key={index + 1}
               onClick={() => changeCurrentPage(index)}
             >

@@ -28,14 +28,16 @@ export default function Footer(props) {
         </p>
       )}
       {pageSelector && (
-        <PageSelector
-          currentPage={currentPage}
-          numberOfLignToDisplay={numberOfLignToDisplay}
-          numberOfPages={numberOfPages}
-          setCurrentPage={setCurrentPage}
-          increaseCurrentPage={increaseCurrentPage}
-          decreaseCurrentPage={decreaseCurrentPage}
-        />
+        <div className="page_selector">
+          <PageSelector
+            currentPage={currentPage}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            setCurrentPage={setCurrentPage}
+            increaseCurrentPage={increaseCurrentPage}
+            decreaseCurrentPage={decreaseCurrentPage}
+          />
+        </div>
       )}
     </>
   );
