@@ -11,6 +11,7 @@ import {
   decreaseCurrentPage,
   setNumberOfPages,
 } from "./redux/actions/rrtable-actions";
+import "./style/style.css";
 
 function Table(props) {
   const {

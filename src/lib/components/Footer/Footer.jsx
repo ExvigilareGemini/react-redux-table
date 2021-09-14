@@ -1,6 +1,5 @@
 import React from "react";
 import PageSelector from "./components/PageSelector";
-import "../../style/Footer.css";
 
 export default function Footer(props) {
   const {
