@@ -1,9 +1,9 @@
 // Requis
-var gulp = require("gulp");
+const gulp = require("gulp");
 
 // Include plugins
-var plugins = require("gulp-load-plugins")(); // tous les plugins de package.json
-var sass = require("gulp-sass")(require("sass"));
+const plugins = require("gulp-load-plugins")(); // tous les plugins de package.json
+const sass = require("gulp-sass")(require("sass"));
 
 gulp.task("css", function () {
   return gulp
@@ -28,6 +28,21 @@ gulp.task("minify", function () {
       })
     )
     .pipe(gulp.dest("./src/lib/style"));
+});
+
+// // Tâche "js" = uglify + concat
+// gulp.task('js', function() {
+//   return gulp.src(source + '/assets/js/*.js')
+//     .pipe(uglify())
+//     .pipe(concat('global.min.js'))
+//     .pipe(gulp.dest(prod + '/assets/js/'));
+// });
+
+// Tâche "img" = Images optimisées
+gulp.task('img', function () {
+  return gulp.src('src/assets/img/*.{png,jpg,jpeg,gif,svg}')
+    .pipe(plugins.imagemin())
+    .pipe(gulp.dest('src/lib/assets/img'));
 });
 
 gulp.task("build", gulp.series("css"));
