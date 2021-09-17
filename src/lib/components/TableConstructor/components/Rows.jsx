@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Cells from "./Cells";
-import { sortingColumn } from "../../../sort/sort";
+import { sortingColumn } from "../../../functions/sort";
+import { filterContent } from "../../../functions/filter";
 
 export default function Rows(props) {
   const {
@@ -12,23 +13,33 @@ export default function Rows(props) {
     rowsNumber,
     sortingOrder,
     actualSortedColumn,
+    searchValue,
     setCurrentPage,
   } = props;
 
-  let sortedRowsContent = sortingColumn(rowsContent, sortingOrder, actualSortedColumn)
-  
+  const sortedRowsContent = sortingColumn(
+    rowsContent,
+    sortingOrder,
+    actualSortedColumn
+  );
+
+  const sortedAndFilteredRowsContent = filterContent(
+    sortedRowsContent,
+    searchValue
+  );
+
   const actualNbrOfFirstLign = currentPage * numberOfLignToDisplay;
+
+  const rowsToDisplay = sortedAndFilteredRowsContent.slice(
+    actualNbrOfFirstLign,
+    actualNbrOfFirstLign + numberOfLignToDisplay
+  );
 
   useEffect(() => {
     if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
       setCurrentPage(numberOfPages - 1);
     }
   });
-
-  const rowsToDisplay = sortedRowsContent.slice(
-    actualNbrOfFirstLign,
-    actualNbrOfFirstLign + numberOfLignToDisplay
-  );
 
   return (
     <>

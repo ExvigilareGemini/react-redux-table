@@ -11,6 +11,7 @@ import {
   decreaseCurrentPage,
   setNumberOfPages,
   sortColumn,
+  setFilterSearch,
 } from "./redux/actions/rrtable-actions";
 import "./style/style.css";
 
@@ -30,6 +31,7 @@ function Table(props) {
     numberOfPages,
     sortingOrder,
     actualSortedColumn,
+    searchValue,
     // redux actions
     initiateState,
     setCurrentPage,
@@ -37,6 +39,7 @@ function Table(props) {
     decreaseCurrentPage,
     setNumberOfPages,
     sortColumn,
+    setFilterSearch,
   } = props;
 
   useEffect(() => {
@@ -54,6 +57,7 @@ function Table(props) {
         numberOfLignToDisplay={numberOfLignToDisplay}
         // redux actions
         setNumberOfPages={setNumberOfPages}
+        setFilterSearch={setFilterSearch}
       />
       <table className="rrtable">
         <TableConstructor
@@ -66,6 +70,7 @@ function Table(props) {
           numberOfPages={numberOfPages}
           sortingOrder={sortingOrder}
           actualSortedColumn={actualSortedColumn}
+          searchValue={searchValue}
           // redux actions
           setCurrentPage={setCurrentPage}
           sortColumn={sortColumn}
@@ -96,6 +101,7 @@ const mapStateToProps = (state) => {
     numberOfPages: state.rrtable.numberOfPages,
     sortingOrder: state.rrtable.sortingOrder,
     actualSortedColumn: state.rrtable.actualSortedColumn,
+    searchValue: state.rrtable.searchValue,
   };
 };
 
@@ -108,6 +114,7 @@ const mapDispatchToProps = (dispatch) => {
       decreaseCurrentPage,
       setNumberOfPages,
       sortColumn,
+      setFilterSearch,
     },
     dispatch
   );

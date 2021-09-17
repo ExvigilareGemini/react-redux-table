@@ -11,6 +11,7 @@ export default function TableBody(props) {
     numberOfPages,
     sortingOrder,
     actualSortedColumn,
+    searchValue,
     setCurrentPage,
   } = props;
 
@@ -25,6 +26,7 @@ export default function TableBody(props) {
         numberOfPages={numberOfPages}
         sortingOrder={sortingOrder}
         actualSortedColumn={actualSortedColumn}
+        searchValue={searchValue}
         setCurrentPage={setCurrentPage}
       />
     </tbody>

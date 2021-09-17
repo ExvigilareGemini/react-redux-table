@@ -5,6 +5,7 @@ import {
   DECREASE_CURRENT_PAGE,
   SET_NUMBER_OF_PAGES,
   SORT_COLUMN,
+  SET_FILTER_SEARCH,
 } from "../constants/rrtable-types";
 import { initialState } from "../initialState/rrtable-initialState";
 
@@ -62,6 +63,14 @@ export const rrtableReducer = (state = initialState, action) => {
           ...state.rrtable,
           actualSortedColumn: action.actualSortedColumn,
           sortingOrder: action.sortingOrder,
+        },
+      };
+    case SET_FILTER_SEARCH:
+      return {
+        ...state,
+        rrtable: {
+          ...state.rrtable,
+          searchValue: action.searchValue,
         },
       };
     default:

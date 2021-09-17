@@ -8,11 +8,9 @@ export default function Header(props) {
     setNumberOfPages,
     rowsNumber,
     numberOfLignToDisplay,
+    setFilterSearch,
   } = props;
 
-  function changeLignNumber(value) {
-    setNumberOfPages(value, rowsNumber);
-  }
 
   return (
     <>
@@ -22,7 +20,7 @@ export default function Header(props) {
           Show
           <select
             defaultValue={numberOfLignToDisplay}
-            onChange={(e) => changeLignNumber(parseInt(e.target.value))}
+            onChange={(e) => setNumberOfPages(parseInt(e.target.value), rowsNumber)}
           >
             {entriesSelector.map((el, index) => {
               return (
@@ -37,7 +35,10 @@ export default function Header(props) {
       {filter && (
         <label>
           Search
-          <input type="search"></input>
+          <input
+            type="search"
+            onChange={(e) => setFilterSearch(e.target.value)}
+          ></input>
         </label>
       )}
     </>

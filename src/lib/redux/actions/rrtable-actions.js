@@ -53,3 +53,10 @@ export const sortColumn = (actualSortedColumn, columnToSort, sortingOrder) => {
     sortingOrder,
   };
 };
+
+export const setFilterSearch = (searchValue) => {
+  return {
+    type: types.SET_FILTER_SEARCH,
+    searchValue,
+  }
+}
