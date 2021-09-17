@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CenterEllipsis(props) {
-  const { currentPage, numberOfPages, setCurrentPage } = props;
+  const { currentPage, setCurrentPage } = props;
 
   function isSelected(index) {
     if (index === currentPage) {

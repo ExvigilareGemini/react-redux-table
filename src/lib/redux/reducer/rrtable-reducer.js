@@ -4,8 +4,8 @@ import {
   INCREASE_CURRENT_PAGE,
   DECREASE_CURRENT_PAGE,
   SET_NUMBER_OF_PAGES,
+  SORT_COLUMN,
 } from "../constants/rrtable-types";
-
 import { initialState } from "../initialState/rrtable-initialState";
 
 export const rrtableReducer = (state = initialState, action) => {
@@ -53,6 +53,15 @@ export const rrtableReducer = (state = initialState, action) => {
           ...state.rrtable,
           numberOfLignToDisplay: action.numberOfLignToDisplay,
           numberOfPages: action.numberOfPages,
+        },
+      };
+    case SORT_COLUMN:
+      return {
+        ...state,
+        rrtable: {
+          ...state.rrtable,
+          actualSortedColumn: action.actualSortedColumn,
+          sortingOrder: action.sortingOrder,
         },
       };
     default:

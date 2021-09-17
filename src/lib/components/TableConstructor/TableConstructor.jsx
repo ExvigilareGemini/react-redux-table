@@ -21,12 +21,20 @@ export default function TableConstructor(props) {
     rowsNumber,
     numberOfLignToDisplay,
     numberOfPages,
+    sortingOrder,
+    actualSortedColumn,
+    sortColumn,
     setCurrentPage,
   } = props;
 
   return (
     <>
-      <TableHeader headersArray={headersArray} />
+      <TableHeader
+        headersArray={headersArray}
+        sortColumn={sortColumn}
+        sortingOrder={sortingOrder}
+        actualSortedColumn={actualSortedColumn}
+      />
       <TableBody
         headersArray={headersArray}
         rowsContent={rowsContent}
@@ -34,6 +42,8 @@ export default function TableConstructor(props) {
         rowsNumber={rowsNumber}
         numberOfLignToDisplay={numberOfLignToDisplay}
         numberOfPages={numberOfPages}
+        sortingOrder={sortingOrder}
+        actualSortedColumn={actualSortedColumn}
         setCurrentPage={setCurrentPage}
       />
     </>

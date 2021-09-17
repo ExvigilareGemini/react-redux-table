@@ -40,3 +40,16 @@ export const setNumberOfPages = (numberOfLignToDisplay, rowsNumber) => {
     numberOfPages,
   };
 };
+export const sortColumn = (actualSortedColumn, columnToSort, sortingOrder) => {
+  if (actualSortedColumn === columnToSort) {
+    sortingOrder = sortingOrder * -1;
+  } else {
+    sortingOrder = 1;
+    actualSortedColumn = columnToSort;
+  }
+  return {
+    type: types.SORT_COLUMN,
+    actualSortedColumn,
+    sortingOrder,
+  };
+};

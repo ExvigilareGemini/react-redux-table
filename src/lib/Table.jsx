@@ -10,6 +10,7 @@ import {
   increaseCurrentPage,
   decreaseCurrentPage,
   setNumberOfPages,
+  sortColumn,
 } from "./redux/actions/rrtable-actions";
 import "./style/style.css";
 
@@ -27,12 +28,15 @@ function Table(props) {
     rowsNumber,
     numberOfLignToDisplay,
     numberOfPages,
+    sortingOrder,
+    actualSortedColumn,
     // redux actions
     initiateState,
     setCurrentPage,
     increaseCurrentPage,
     decreaseCurrentPage,
     setNumberOfPages,
+    sortColumn,
   } = props;
 
   useEffect(() => {
@@ -60,8 +64,11 @@ function Table(props) {
           rowsNumber={rowsNumber}
           numberOfLignToDisplay={numberOfLignToDisplay}
           numberOfPages={numberOfPages}
+          sortingOrder={sortingOrder}
+          actualSortedColumn={actualSortedColumn}
           // redux actions
           setCurrentPage={setCurrentPage}
+          sortColumn={sortColumn}
         />
       </table>
       <Footer
@@ -87,6 +94,8 @@ const mapStateToProps = (state) => {
     rowsNumber: state.rrtable.rowsNumber,
     numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
     numberOfPages: state.rrtable.numberOfPages,
+    sortingOrder: state.rrtable.sortingOrder,
+    actualSortedColumn: state.rrtable.actualSortedColumn,
   };
 };
 
@@ -98,6 +107,7 @@ const mapDispatchToProps = (dispatch) => {
       increaseCurrentPage,
       decreaseCurrentPage,
       setNumberOfPages,
+      sortColumn,
     },
     dispatch
   );

@@ -9,6 +9,8 @@ export default function TableBody(props) {
     rowsNumber,
     numberOfLignToDisplay,
     numberOfPages,
+    sortingOrder,
+    actualSortedColumn,
     setCurrentPage,
   } = props;
 
@@ -21,6 +23,8 @@ export default function TableBody(props) {
         rowsNumber={rowsNumber}
         numberOfLignToDisplay={numberOfLignToDisplay}
         numberOfPages={numberOfPages}
+        sortingOrder={sortingOrder}
+        actualSortedColumn={actualSortedColumn}
         setCurrentPage={setCurrentPage}
       />
     </tbody>
