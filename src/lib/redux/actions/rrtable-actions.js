@@ -33,6 +33,7 @@ export const decreaseCurrentPage = (currentPage) => {
 };
 
 export const setNumberOfPages = (numberOfLignToDisplay, rowsNumber) => {
+  console.log(111,numberOfLignToDisplay, rowsNumber)
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.SET_NUMBER_OF_PAGES,

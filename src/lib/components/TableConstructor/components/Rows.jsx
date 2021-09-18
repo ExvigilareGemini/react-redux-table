@@ -15,6 +15,7 @@ export default function Rows(props) {
     actualSortedColumn,
     searchValue,
     setCurrentPage,
+    setNumberOfPages,
   } = props;
 
   const sortedRowsContent = sortingColumn(
@@ -35,10 +36,12 @@ export default function Rows(props) {
     actualNbrOfFirstLign + numberOfLignToDisplay
   );
 
+    
   useEffect(() => {
     if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
       setCurrentPage(numberOfPages - 1);
     }
+    setNumberOfPages(numberOfLignToDisplay, sortedAndFilteredRowsContent.length)
   });
 
   return (

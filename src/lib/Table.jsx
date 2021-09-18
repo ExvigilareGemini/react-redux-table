@@ -74,6 +74,7 @@ function Table(props) {
           // redux actions
           setCurrentPage={setCurrentPage}
           sortColumn={sortColumn}
+          setNumberOfPages={setNumberOfPages}
         />
       </table>
       <Footer

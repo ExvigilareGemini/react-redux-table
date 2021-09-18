@@ -26,6 +26,7 @@ export default function TableConstructor(props) {
     searchValue,
     sortColumn,
     setCurrentPage,
+    setNumberOfPages,
   } = props;
 
   return (
@@ -47,6 +48,7 @@ export default function TableConstructor(props) {
         searchValue={searchValue}
         actualSortedColumn={actualSortedColumn}
         setCurrentPage={setCurrentPage}
+        setNumberOfPages={setNumberOfPages}
       />
     </>
   );
