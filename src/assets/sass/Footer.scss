@@ -1,10 +1,37 @@
-.page_selector {
-    display: flex;
-}
-.pageNumberButton-selected {
+$button-height: 2rem;
+$button-width: 2rem;
+$margin: 0.2rem;
+
+.rrtable-pageSelector {
+  display: flex;
+  align-items: center;
+  &-pageButton {
+    height: $button-height;
+    width: fit-content;
+    margin: $margin;
+  }
+  &-nbrButton {
+    height: $button-height;
+    width: $button-width;
+    margin: $margin;
+  }
+  &-nbrButton-selected {
+    height: $button-height;
+    width: $button-width;
     background-color: gold;
+    margin: $margin;
+  }
+  &-ellipsis {
+    width: $button-width;
+    text-align: center;
+  }
 }
 
-.pageNumberButtonEllipsis{
+.rrtable-footer {
+  &-container {
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
 
+  }
 }

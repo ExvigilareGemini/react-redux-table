@@ -1,16 +1,10 @@
 import React from "react";
 import CenterEllipsis from "./PageNumberButtonEllipsis/CenterEllipsis";
 import EdgeEllipsis from "./PageNumberButtonEllipsis/EdgeEllipsis";
+import isSelected from "../../../functions/isSelected";
 
 export default function PageNumberButtonEllipsis(props) {
   const { currentPage, numberOfPages, setCurrentPage } = props;
-
-  function isSelected(index) {
-    if (index === currentPage) {
-      return "pageNumberButton-selected";
-    }
-    return "pageNumberButton";
-  }
 
   function changeCurrentPage(index) {
     setCurrentPage(index);
@@ -26,7 +20,7 @@ export default function PageNumberButtonEllipsis(props) {
   return (
     <>
       <button
-        className={isSelected(0)}
+        className={isSelected(0, currentPage)}
         key={1}
         onClick={() => changeCurrentPage(0)}
       >
@@ -46,7 +40,7 @@ export default function PageNumberButtonEllipsis(props) {
         />
       )}
       <button
-        className={isSelected(numberOfPages - 1)}
+        className={isSelected(numberOfPages - 1, currentPage)}
         key={numberOfPages}
         onClick={() => changeCurrentPage(numberOfPages)}
       >

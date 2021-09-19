@@ -1,14 +1,8 @@
 import React from "react";
+import isSelected from "../../../../functions/isSelected";
 
 export default function CenterEllipsis(props) {
   const { currentPage, setCurrentPage } = props;
-
-  function isSelected(index) {
-    if (index === currentPage) {
-      return "pageNumberButton-selected";
-    }
-    return "pageNumberButton";
-  }
 
   function changeCurrentPage(index) {
     setCurrentPage(index);
@@ -16,13 +10,13 @@ export default function CenterEllipsis(props) {
 
   return (
     <>
-      <p className="pageNumberButtonEllipsis">...</p>
+      <p className="rrtable-pageSelector-ellipsis">...</p>
       {Array(3)
         .fill(null)
         .map((el, index) => {
           return (
             <button
-              className={isSelected(index + currentPage - 1)}
+              className={isSelected((index + currentPage - 1), currentPage)}
               key={index + currentPage}
               onClick={() => changeCurrentPage(index + currentPage - 1)}
             >
@@ -30,7 +24,7 @@ export default function CenterEllipsis(props) {
             </button>
           );
         })}
-      <p className="pageNumberButtonEllipsis">...</p>
+      <p className="rrtable-pageSelector-ellipsis">...</p>
     </>
   );
 }

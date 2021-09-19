@@ -1,0 +1,16 @@
+.rrtable-header {
+  &-title {
+    width: fit-content;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  &-input {
+    margin-left: 0.5rem;
+  }
+  &-labelContainer {
+    display: flex;
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+    justify-content: space-between;
+  }
+}

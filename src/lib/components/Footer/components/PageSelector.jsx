@@ -22,6 +22,7 @@ export default function PageSelector(props) {
   return (
     <>
       <button
+        className="rrtable-pageSelector-pageButton"
         onClick={previousButton}
         disabled={currentPage === 0 ? true : false}
       >
@@ -43,6 +44,7 @@ export default function PageSelector(props) {
       )}
 
       <button
+        className="rrtable-pageSelector-pageButton"
         onClick={nextButton}
         disabled={currentPage === numberOfPages - 1 ? true : false}
       >

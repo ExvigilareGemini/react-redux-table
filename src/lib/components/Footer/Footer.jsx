@@ -18,7 +18,7 @@ export default function Footer(props) {
   const bigNumber = (currentPage + 1) * numberOfLignToDisplay;
 
   return (
-    <>
+    <div className="rrtable-footer-container">
       {showEntries && (
         <p>
           Showing {smallNumber + 1} to{" "}
@@ -27,7 +27,7 @@ export default function Footer(props) {
         </p>
       )}
       {pageSelector && (
-        <div className="page_selector">
+        <div className="rrtable-pageSelector">
           <PageSelector
             currentPage={currentPage}
             numberOfLignToDisplay={numberOfLignToDisplay}
@@ -38,6 +38,6 @@ export default function Footer(props) {
           />
         </div>
       )}
-    </>
+    </div>
   );
 }

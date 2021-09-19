@@ -12,7 +12,6 @@ import { initialState } from "../initialState/rrtable-initialState";
 export const rrtableReducer = (state = initialState, action) => {
   switch (action.type) {
     case INITIATE_STATE:
-      console.log("Reducer initiate state");
       return {
         ...state,
         rrtable: {
@@ -74,7 +73,6 @@ export const rrtableReducer = (state = initialState, action) => {
         },
       };
     default:
-      console.log("Reducer default");
       return state;
   }
 };

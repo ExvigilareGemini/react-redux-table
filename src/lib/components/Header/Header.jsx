@@ -11,36 +11,41 @@ export default function Header(props) {
     setFilterSearch,
   } = props;
 
-
   return (
     <>
-      {title && <h1 className="rrtable-title">{title}</h1>}
-      {entriesSelector && (
-        <label>
-          Show
-          <select
-            defaultValue={numberOfLignToDisplay}
-            onChange={(e) => setNumberOfPages(parseInt(e.target.value), rowsNumber)}
-          >
-            {entriesSelector.map((el, index) => {
-              return (
-                <option value={el} key={el + index}>
-                  {el}
-                </option>
-              );
-            })}
-          </select>
-        </label>
-      )}
-      {filter && (
-        <label>
-          Search
-          <input
-            type="search"
-            onChange={(e) => setFilterSearch(e.target.value)}
-          ></input>
-        </label>
-      )}
+      {title && <h1 className="rrtable-header-title">{title}</h1>}
+      <div className="rrtable-header-labelContainer">
+        {entriesSelector && (
+          <label className="rrtable-header-label">
+            Show
+            <select
+              className="rrtable-header-input"
+              defaultValue={numberOfLignToDisplay}
+              onChange={(e) =>
+                setNumberOfPages(parseInt(e.target.value), rowsNumber)
+              }
+            >
+              {entriesSelector.map((el, index) => {
+                return (
+                  <option value={el} key={el + index}>
+                    {el}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        )}
+        {filter && (
+          <label className="rrtable-header-label">
+            Search
+            <input
+              className="rrtable-header-input"
+              type="search"
+              onChange={(e) => setFilterSearch(e.target.value)}
+            ></input>
+          </label>
+        )}
+      </div>
     </>
   );
 }

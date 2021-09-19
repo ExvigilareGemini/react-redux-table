@@ -11,10 +11,10 @@ gulp.task("css", function () {
     .pipe(plugins.concat("style.css"))
     .pipe(plugins.sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
+    .pipe(plugins.autoprefixer())
     .pipe(plugins.csscomb())
     .pipe(plugins.cssbeautify({ indent: "  " }))
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.autoprefixer())
     .pipe(gulp.dest("./src/lib/style"));
 });
 

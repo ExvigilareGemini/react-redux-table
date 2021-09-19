@@ -13,13 +13,13 @@ export default function Cells(props) {
             `No match for category for row ${index1} at cell number ${index2}`
           );
           return (
-            <td className="rrtable-cell" key={index1 + index2}>
+            <td className="rrtable-row-cell" key={index1 + index2}>
               Error
             </td>
           );
         }
         return (
-          <td className="rrtable-cell" key={index1 + index2}>
+          <td className="rrtable-row-cell" key={index1 + index2}>
             {arr[indexOfCorrespondingCategory].cellValue}
           </td>
         );

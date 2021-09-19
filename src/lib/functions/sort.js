@@ -21,7 +21,6 @@ export function sortingColumn(arrayToSort, sortingOrder, categoryToCompare) {
       const indexOfCorrespondingCategory = arr1.findIndex(
         (el) => el.category === categoryToCompare
       );
-      console.log("Issue 1");
       // If in date format
       if (
         regexIsDateFormat.test(arr1[indexOfCorrespondingCategory].cellValue)

@@ -48,48 +48,55 @@ function Table(props) {
 
   return (
     <>
-      <Header
-        title={title}
-        filter={filter}
-        entriesSelector={entriesSelector}
-        // redux states
-        rowsNumber={rowsNumber}
-        numberOfLignToDisplay={numberOfLignToDisplay}
-        // redux actions
-        setNumberOfPages={setNumberOfPages}
-        setFilterSearch={setFilterSearch}
-      />
-      <table className="rrtable">
-        <TableConstructor
-          headersArray={headersArray}
-          rowsContent={rowsContent}
-          // redux states
-          currentPage={currentPage}
-          rowsNumber={rowsNumber}
-          numberOfLignToDisplay={numberOfLignToDisplay}
-          numberOfPages={numberOfPages}
-          sortingOrder={sortingOrder}
-          actualSortedColumn={actualSortedColumn}
-          searchValue={searchValue}
-          // redux actions
-          setCurrentPage={setCurrentPage}
-          sortColumn={sortColumn}
-          setNumberOfPages={setNumberOfPages}
-        />
-      </table>
-      <Footer
-        showEntries={showEntries}
-        pageSelector={pageSelector}
-        // redux states
-        currentPage={currentPage}
-        rowsNumber={rowsNumber}
-        numberOfLignToDisplay={numberOfLignToDisplay}
-        numberOfPages={numberOfPages}
-        // redux actions
-        setCurrentPage={setCurrentPage}
-        increaseCurrentPage={increaseCurrentPage}
-        decreaseCurrentPage={decreaseCurrentPage}
-      />
+      <div className="rrtable">
+        <div className="rrtable-header">
+          <Header
+            title={title}
+            filter={filter}
+            entriesSelector={entriesSelector}
+            // redux states
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            // redux actions
+            setNumberOfPages={setNumberOfPages}
+            setFilterSearch={setFilterSearch}
+          />
+        </div>
+
+        <table className="rrtable-table">
+          <TableConstructor
+            headersArray={headersArray}
+            rowsContent={rowsContent}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            sortingOrder={sortingOrder}
+            actualSortedColumn={actualSortedColumn}
+            searchValue={searchValue}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            sortColumn={sortColumn}
+            setNumberOfPages={setNumberOfPages}
+          />
+        </table>
+        <div className="rrtable-footer">
+          <Footer
+            showEntries={showEntries}
+            pageSelector={pageSelector}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            increaseCurrentPage={increaseCurrentPage}
+            decreaseCurrentPage={decreaseCurrentPage}
+          />
+        </div>
+      </div>
     </>
   );
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import isSelected from "../../../../functions/isSelected";
+
 
 export default function EdgeEllipsis(props) {
   const { currentPage, numberOfPages, setCurrentPage } = props;
@@ -7,13 +9,6 @@ export default function EdgeEllipsis(props) {
   const valueToAddToIndex =
     currentPage <= numberOfPages / 2 ? 1 : numberOfPages - 4;
 
-  function isSelected(index) {
-    if (index === currentPage) {
-      return "pageNumberButton-selected";
-    }
-    return "pageNumberButton";
-  }
-
   function changeCurrentPage(index) {
     setCurrentPage(index);
   }
@@ -21,14 +16,14 @@ export default function EdgeEllipsis(props) {
   return (
     <>
       {valueToAddToIndex !== 1 && (
-        <p className="pageNumberButtonEllipsis">...</p>
+        <p className="rrtable-pageSelector-ellipsis">...</p>
       )}
       {Array(3)
         .fill(null)
         .map((el, index) => {
           return (
             <button
-              className={isSelected(index + valueToAddToIndex)}
+              className={isSelected((index + valueToAddToIndex), currentPage)}
               key={index + valueToAddToIndex + 1}
               onClick={() => changeCurrentPage(index + valueToAddToIndex)}
             >
@@ -37,7 +32,7 @@ export default function EdgeEllipsis(props) {
           );
         })}
       {valueToAddToIndex === 1 && (
-        <p className="pageNumberButtonEllipsis">...</p>
+        <p className="rrtable-pageSelector-ellipsis">...</p>
       )}
     </>
   );

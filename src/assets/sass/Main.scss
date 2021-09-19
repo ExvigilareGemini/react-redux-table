@@ -1,0 +1,33 @@
+$height: 2.5rem;
+
+.rrtable-table {
+  width: 100%;
+  border: 2px solid #f0f3f5;
+  border-spacing: 0;
+}
+
+.rrtable-table-header{
+  &-row{
+    text-align: left;
+    height: $height;  
+  }
+  &-cell{
+    padding-left: 0.8rem;
+    border-right: 1px solid #eaedf0;
+    border-left: 1px solid #eaedf0;
+    border-bottom: 2px solid #97999b;
+  }
+}
+
+.rrtable-row {
+  text-align: left;
+  height: $height;
+  &:nth-child(2n + 1) {
+    background-color: #f0f3f5;
+  }
+  &-cell {
+    padding-left: 0.8rem;
+    border-right: 1px solid #eaedf0;
+    border-left: 1px solid #eaedf0;
+  }
+}
