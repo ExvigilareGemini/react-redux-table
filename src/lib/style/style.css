@@ -18,10 +18,13 @@
 }
 
 .rrtable-pageSelector-nbrButton-selected {
-  width: 2rem;
-  height: 2rem;
+  font-size: 17px;
+  width: 2.4rem;
+  height: 2.4rem;
   margin: .2rem;
-  background-color: gold;
+  border: 1px solid;
+  border-radius: 2px;
+  background-color: #c5c9cc;
 }
 
 .rrtable-pageSelector-ellipsis {

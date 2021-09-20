@@ -16,10 +16,13 @@ $margin: 0.2rem;
     margin: $margin;
   }
   &-nbrButton-selected {
-    height: $button-height;
-    width: $button-width;
-    background-color: gold;
+    height: 2.4rem;
+    width: 2.4rem;
+    background-color: #c5c9cc;
+    border: 1px solid;
+    border-radius: 2px;
     margin: $margin;
+    font-size: 17px;
   }
   &-ellipsis {
     width: $button-width;
@@ -32,6 +35,5 @@ $margin: 0.2rem;
     display: flex;
     padding: 0 1rem;
     justify-content: space-between;
-
   }
 }
