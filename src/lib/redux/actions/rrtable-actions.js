@@ -12,6 +12,7 @@ export const initiateState = (rowsNumber, numberOfLignToDisplay) => {
 
 // Force the value of the page
 export const setCurrentPage = (currentPage) => {
+  if (currentPage < 0) currentPage = 0 ; 
   return {
     type: types.SET_CURRENT_PAGE,
     currentPage,
@@ -37,6 +38,7 @@ export const setNumberOfPages = (numberOfLignToDisplay, rowsNumber) => {
   return {
     type: types.SET_NUMBER_OF_PAGES,
     numberOfLignToDisplay,
+    rowsNumber,
     numberOfPages,
   };
 };

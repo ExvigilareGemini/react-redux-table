@@ -14,14 +14,14 @@ export default function Footer(props) {
     decreaseCurrentPage,
   } = props;
 
-  const smallNumber = currentPage * numberOfLignToDisplay;
   const bigNumber = (currentPage + 1) * numberOfLignToDisplay;
-
+  const smallNumber = bigNumber - (numberOfLignToDisplay - 1);
+console.log(smallNumber)
   return (
     <div className="rrtable-footer-container">
       {showEntries && (
         <p>
-          Showing {smallNumber + 1} to{" "}
+          Showing {rowsNumber === 0 ? 0 : smallNumber} to{" "}
           {bigNumber > rowsNumber ? rowsNumber : bigNumber} of {rowsNumber}{" "}
           entries
         </p>

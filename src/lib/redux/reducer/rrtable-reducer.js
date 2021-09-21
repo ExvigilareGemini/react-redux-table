@@ -52,6 +52,7 @@ export const rrtableReducer = (state = initialState, action) => {
         rrtable: {
           ...state.rrtable,
           numberOfLignToDisplay: action.numberOfLignToDisplay,
+          rowsNumber: action.rowsNumber,
           numberOfPages: action.numberOfPages,
         },
       };
@@ -70,6 +71,7 @@ export const rrtableReducer = (state = initialState, action) => {
         rrtable: {
           ...state.rrtable,
           searchValue: action.searchValue,
+          currentPage: 0,
         },
       };
     default:
