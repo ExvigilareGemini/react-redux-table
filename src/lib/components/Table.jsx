@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Header from "./components/Header/Header";
-import TableConstructor from "./components/TableConstructor/TableConstructor";
-import Footer from "./components/Footer/Footer";
+import Header from "./Header/Header";
+import TableConstructor from "./TableConstructor/TableConstructor";
+import Footer from "./Footer/Footer";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
@@ -12,9 +12,9 @@ import {
   setNumberOfPages,
   sortColumn,
   setFilterSearch,
-} from "./redux/actions/rrtable-actions";
+} from "../redux/actions/rrtable-actions";
 import PropTypes from "prop-types";
-import "./style/style.css";
+import "../style/style.css";
 
 
 

@@ -1,8 +1,12 @@
 {
   "name": "react-redux-table",
+  "description": "A data-table made with react and redux",
+  "author": "ExvigilareGemini",
+  "keywords": ["table", "datatable", "react", "redux"],
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -17,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.conf.json"
@@ -41,6 +45,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
     "better-docs": "^2.3.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "latest",
