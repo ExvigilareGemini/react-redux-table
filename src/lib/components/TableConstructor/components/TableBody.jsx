@@ -1,6 +1,17 @@
 import React from "react";
 import Rows from "./Rows";
 
+/**
+   * Render the table body
+   * @namespace TableBody
+   * @component
+   * @category Table
+   * @subcategory 
+   * @param {Object} props
+   * @requires React
+   * @return {JSX} {@link Rows}
+*/
+
 export default function TableBody(props) {
   const {
     rowsContent,

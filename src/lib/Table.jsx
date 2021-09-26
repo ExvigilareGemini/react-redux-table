@@ -13,23 +13,27 @@ import {
   sortColumn,
   setFilterSearch,
 } from "./redux/actions/rrtable-actions";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./style/style.css";
 
-/** Root component of the table
+
+
+/**
+ * Root component of the table
  * 
- * @param {*} props 
- * @returns 
+ * @namespace Table
+ * @component
+ * @category Table
+ * @param {typedefs.rowsContent} props 
  */
 function Table(props) {
   const {
+    headersArray,
+    rowsContent,
     title,
     filter,
     entriesSelector,
-    headersArray,
-    rowsContent,
     showEntries,
-    pageSelector,
     // redux states
     currentPage,
     rowsNumber,
@@ -89,7 +93,6 @@ function Table(props) {
         <div className="rrtable-footer">
           <Footer
             showEntries={showEntries}
-            pageSelector={pageSelector}
             // redux states
             currentPage={currentPage}
             rowsNumber={rowsNumber}
@@ -105,6 +108,34 @@ function Table(props) {
     </>
   );
 }
+
+Table.propTypes = {
+  /**
+   * PropTypes
+   */
+  title: PropTypes.string,
+  filter: PropTypes.bool,
+  entriesSelector: PropTypes.array,
+  headersArray: PropTypes.arrayOf(PropTypes.object),
+  rowsContent: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+  showEntries: PropTypes.bool,
+  // redux states
+  currentPage: PropTypes.number,
+  rowsNumber: PropTypes.number,
+  numberOfLignToDisplay: PropTypes.number,
+  numberOfPages: PropTypes.number,
+  sortingOrder: PropTypes.number,
+  actualSortedColumn: PropTypes.string,
+  searchValue: PropTypes.string,
+  // redux actions
+  initiateState: PropTypes.elementType,
+  setCurrentPage: PropTypes.elementType,
+  increaseCurrentPage: PropTypes.elementType,
+  decreaseCurrentPage: PropTypes.elementType,
+  setNumberOfPages: PropTypes.elementType,
+  sortColumn: PropTypes.elementType,
+  setFilterSearch: PropTypes.elementType,
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -134,29 +165,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
-
-Table.propTypes = {
-  title: PropTypes.string,
-  filter: PropTypes.bool,
-  entriesSelector: PropTypes.array,
-  headersArray: PropTypes.arrayOf(PropTypes.object),
-  rowsContent: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
-  showEntries: PropTypes.bool,
-  pageSelector: PropTypes.bool,
-  // // redux states
-  currentPage: PropTypes.number,
-  rowsNumber: PropTypes.number,
-  numberOfLignToDisplay: PropTypes.number,
-  numberOfPages: PropTypes.number,
-  sortingOrder: PropTypes.number,
-  actualSortedColumn: PropTypes.string,
-  searchValue: PropTypes.string,
-  // // redux actions
-  initiateState: PropTypes.elementType,
-  setCurrentPage: PropTypes.elementType,
-  increaseCurrentPage: PropTypes.elementType,
-  decreaseCurrentPage: PropTypes.elementType,
-  setNumberOfPages: PropTypes.elementType,
-  sortColumn: PropTypes.elementType,
-  setFilterSearch: PropTypes.elementType,
-}

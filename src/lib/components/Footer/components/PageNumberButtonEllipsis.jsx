@@ -3,6 +3,17 @@ import CenterEllipsis from "./PageNumberButtonEllipsis/CenterEllipsis";
 import EdgeEllipsis from "./PageNumberButtonEllipsis/EdgeEllipsis";
 import isSelected from "../../../functions/isSelected";
 
+/**
+   * Render a set of buttons to navigate through pages and ellipsis
+   * @namespace PageNumberButtonEllipsis
+   * @component 
+   * @category Footer
+   * @subcategory PageSelector
+   * @param {Object} props
+   * @requires React
+   * @return {JSX} {@link CenterEllipsis} or {@link EdgeEllipsis}
+*/
+
 export default function PageNumberButtonEllipsis(props) {
   const { currentPage, numberOfPages, setCurrentPage } = props;
 

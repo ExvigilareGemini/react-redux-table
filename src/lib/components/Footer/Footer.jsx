@@ -1,10 +1,20 @@
 import React from "react";
 import PageSelector from "./components/PageSelector";
 
+/**
+   * Render the footer of the table including show entries and PageSelector
+   * @namespace Footer
+   * @component
+   * @category Footer
+   * @subcategory 
+   * @param {Object} props
+   * @requires React
+   * @return {JSX} {@link PageSelector}
+*/
+
 export default function Footer(props) {
   const {
     showEntries,
-    pageSelector,
     rowsNumber,
     currentPage,
     numberOfLignToDisplay,
@@ -16,7 +26,6 @@ export default function Footer(props) {
 
   const bigNumber = (currentPage + 1) * numberOfLignToDisplay;
   const smallNumber = bigNumber - (numberOfLignToDisplay - 1);
-console.log(smallNumber)
   return (
     <div className="rrtable-footer-container">
       {showEntries && (
@@ -26,7 +35,7 @@ console.log(smallNumber)
           entries
         </p>
       )}
-      {pageSelector && (
+
         <div className="rrtable-pageSelector">
           <PageSelector
             currentPage={currentPage}
@@ -37,7 +46,6 @@ console.log(smallNumber)
             decreaseCurrentPage={decreaseCurrentPage}
           />
         </div>
-      )}
     </div>
   );
 }

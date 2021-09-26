@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "better-docs": "^2.3.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,7 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "make_documentation": "npx jsdoc ./src/index.js -d ./doc",
     "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
@@ -43,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "better-docs": "^2.3.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "^2.6.1",
@@ -50,6 +49,7 @@
     "gulp-csscomb": "latest",
     "gulp-csso": "latest",
     "gulp-imagemin": "^7.0.1",
+    "gulp-jsdoc3": "^3.0.0",
     "gulp-less": "latest",
     "gulp-load-plugins": "latest",
     "gulp-rename": "latest",

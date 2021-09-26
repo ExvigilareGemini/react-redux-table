@@ -2,6 +2,17 @@ import React from "react";
 import PageNumberButton from "./PageNumberButton";
 import PageNumberButtonEllipsis from "./PageNumberButtonEllipsis";
 
+/**
+   * Render page number buttons
+   * @namespace PageSelector
+   * @component
+   * @category Footer
+   * @subcategory 
+   * @param {Object} props
+   * @requires React
+   * @return {JSX} {@link PageNumberButtonEllipsis} or {@link PageNumberButton}
+*/
+
 export default function PageSelector(props) {
   const {
     currentPage,

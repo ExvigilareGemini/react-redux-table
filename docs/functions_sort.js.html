@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> functions/sort.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">React-redux-table</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Footer</h2><h3>Components / PageSelector</h3><ul><li><a href="CenterEllipsis.html">CenterEllipsis</a></li><li><a href="EdgeEllipsis.html">EdgeEllipsis</a></li><li><a href="PageNumberButton.html">PageNumberButton</a></li><li><a href="PageNumberButtonEllipsis.html">PageNumberButtonEllipsis</a></li></ul><h3>Components</h3><ul><li><a href="Footer.html">Footer</a></li><li><a href="PageSelector.html">PageSelector</a></li></ul></div><div class="category"><h2>Functions</h2><h3>Global</h3><ul><li><a href="global.html#compareArrays">compareArrays</a></li><li><a href="global.html#compareArraysOfDateFormat">compareArraysOfDateFormat</a></li><li><a href="global.html#filterContent">filterContent</a></li><li><a href="global.html#reverseDateRepresentation">reverseDateRepresentation</a></li><li><a href="global.html#sortingColumn">sortingColumn</a></li></ul></div><div class="category"><h2>Header</h2><h3>Components</h3><ul><li><a href="Header.html">Header</a></li></ul></div><div class="category"><h2>Redux</h2><h3>Global</h3><ul><li><a href="global.html#decreaseCurrentPage">decreaseCurrentPage</a></li><li><a href="global.html#increaseCurrentPage">increaseCurrentPage</a></li><li><a href="global.html#initiateState">initiateState</a></li><li><a href="global.html#rrtableReducer">rrtableReducer</a></li><li><a href="global.html#setCurrentPage">setCurrentPage</a></li><li><a href="global.html#setFilterSearch">setFilterSearch</a></li><li><a href="global.html#setNumberOfPages">setNumberOfPages</a></li><li><a href="global.html#sortColumn">sortColumn</a></li></ul></div><div class="category"><h2>Table</h2><h3>Components / TableBody</h3><ul><li><a href="Cells.html">Cells</a></li><li><a href="Rows.html">Rows</a></li></ul><h3>Components</h3><ul><li><a href="module-TableConstructor.html">TableConstructor</a></li><li><a href="Table.html">Table</a></li><li><a href="TableBody.html">TableBody</a></li><li><a href="TableHeaders.html">TableHeaders</a></li></ul></div><div class="category"><h2>Types Def</h2><h3><a href="global.html">Global</a></h3></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>functions/sort.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Compare the value inside two arrays
+ * @category Functions
+ * @param {Object[]} arr1 - First array
+ * @param {Object[]} arr2 - Second array
+ * @param {number} index - The place of the object to compare inside both arrays
+ * @returns {bool} - True if the value in first array is bagger than in the second, false if not
+ */
+function compareArrays(arr1, arr2, index) {
+  console.log(arr1)
+  return arr1[index].cellValue > arr2[index].cellValue ? true : false;
+}
+
+/**
+ * Invert the string date format from dd/mm/yyyy to yyyy/mm/dd and vice versa 
+ * @category Functions
+ * @param {string} date - The date to invert
+ * @returns {string} - The invertes date
+ */
+function reverseDateRepresentation(date) {
+  let parts = date.split("/");
+  return `${parts[2]}-${parts[1]}-${parts[0]}`;
+}
+
+/**
+ * Compare date on string format dd/mm/yyyy
+ * @category Functions
+ * @param {Object[]} arr1 - First array to compare
+ * @param {Object[]} arr2 - Second array to compare
+ * @param {number} index - The place in the array corresponding to the date category
+ * @returns {bool} True if date is bigger in first array, false if not
+ */
+function compareArraysOfDateFormat(arr1, arr2, index) {
+  const arrDateFormat1 = reverseDateRepresentation(arr1[index].cellValue);
+  const arrDateFormat2 = reverseDateRepresentation(arr2[index].cellValue);
+  return arrDateFormat1 > arrDateFormat2 ? true : false;
+}
+
+const regexIsDateFormat = /[0-9]{2}[/][0-9]{2}[/][0-9]{4}/;
+
+/**
+ * Sort an array according to one column category
+ * @category Functions
+ * @param {Array.Object[]} arrayToSort - The array to sort
+ * @param {number} sortingOrder - Sorting direction : 1 smaller to bigger, -1 bigger to smaller
+ * @param {string} categoryToCompare - The name of the category to compare
+ * @returns {Array.Object[]} The sorted array
+ */
+export function sortingColumn(arrayToSort, sortingOrder, categoryToCompare) {
+  if (sortingOrder !== 0 || categoryToCompare !== "") {
+    arrayToSort.sort((arr1, arr2) => {
+      const indexOfCorrespondingCategory = arr1.findIndex(
+        (el) => el.category === categoryToCompare
+      );
+      // If in date format
+      if (
+        regexIsDateFormat.test(arr1[indexOfCorrespondingCategory].cellValue)
+      ) {
+        if (
+          compareArraysOfDateFormat(arr1, arr2, indexOfCorrespondingCategory)
+        ) {
+          return sortingOrder;
+        }
+      } else if (compareArrays(arr1, arr2, indexOfCorrespondingCategory)) {
+        return sortingOrder;
+      }
+      return -sortingOrder;
+    });
+  }
+  return arrayToSort;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

@@ -38,16 +38,18 @@ gulp.task("minify", function () {
 //     .pipe(gulp.dest(prod + '/assets/js/'));
 // });
 
-// Tâche "img" = Images optimisées
-gulp.task('img', function () {
-  return gulp.src('src/assets/img/*.{png,jpg,jpeg,gif,svg}')
-    .pipe(plugins.imagemin())
-    .pipe(gulp.dest('src/lib/assets/img'));
-});
+gulp.task('docs', function(cb){
+  const config = require("./jsdoc.conf.json")
+  gulp.src(["./src/lib/*/*.jsx"], {read: false})
+    .pipe(plugins.jsdoc3(config, cb))
+})
 
 gulp.task("build", gulp.series("css"));
 gulp.task("prod", gulp.series("build", "minify"));
-gulp.task("watch", function () {
+gulp.task("watch-css", function () {
   gulp.watch("./src/assets/sass/*.scss", gulp.series("build"));
+});
+gulp.task("watch-jsdoc", function () {
+  gulp.watch("./src/lib/*/*.js", gulp.series("docs"));
 });
 gulp.task("default", gulp.series("build"));

@@ -3,15 +3,14 @@ import TableBody from "./components/TableBody";
 import TableHeader from "./components/TableHeader";
 
 
-
-/** Functionnal component, render the table
- *
- * @param {Object} props
- * @param {Array.<Objject>} props.headersArray Contain datas to construct the head part of the table
- * @param {Array} props.headersArray.title The title of the column to display in the head
- * @param {Array} props.headersArray.category The category of the column
- * @param {Array.<rowContent>} props.rowsContent Contain datas of each rows
- * @returns {JSX} The full table containing TableHeader and TableBody
+/** 
+ * Render the table
+ * @module TableConstructor
+ * @component
+ * @category Table
+ * @subcategory
+ * @requires React
+ * @returns {JSX} {@link Header} & {@link TableBody}
  */
 export default function TableConstructor(props) {
   const {

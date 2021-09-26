@@ -1,5 +1,15 @@
 import React from "react";
 
+/**
+   * Render columns headers
+   * @namespace TableHeaders
+   * @component
+   * @category Table
+   * @subcategory
+   * @param {Object} props
+   * @requires React
+*/
+
 export default function TableHeader(props) {
   const { headersArray, sortColumn, sortingOrder, actualSortedColumn } = props;
 

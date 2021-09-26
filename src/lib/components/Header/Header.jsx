@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * Header of the table, contains the title, select and searching sections
+ * @namespace Header
+ * @component
+ * @category Header
+ * @subcategory 
+ * @param {*} props 
+ */
 export default function Header(props) {
   const {
     title,
@@ -22,7 +30,7 @@ export default function Header(props) {
               className="rrtable-header-input"
               defaultValue={numberOfLignToDisplay}
               onChange={(e) =>
-                setNumberOfPages(parseInt(e.target.value), rowsNumber)
+                setNumberOfPages(rowsNumber, parseInt(e.target.value))
               }
             >
               {entriesSelector.map((el, index) => {

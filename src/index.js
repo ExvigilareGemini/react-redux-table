@@ -21,7 +21,6 @@ const App = () => {
           filter={true}
           entriesSelector={entriesSelector}
           showEntries={true}
-          pageSelector={true}
         />
       </Provider>
     </>

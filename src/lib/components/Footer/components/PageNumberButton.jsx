@@ -1,6 +1,17 @@
 import React from "react";
 import isSelected from "../../../functions/isSelected";
 
+/**
+   * Render a set of buttons to navigate through pages
+   * @namespace PageNumberButton
+   * @component
+   * @category Footer
+   * @subcategory PageSelector
+   * @param {Object} props
+   * @requires React
+   * @return {JSX}
+*/
+
 export default function PageNumberButton(props) {
   const { numberOfPages, currentPage, setCurrentPage } = props;
 

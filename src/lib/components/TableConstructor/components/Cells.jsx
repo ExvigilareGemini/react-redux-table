@@ -1,5 +1,16 @@
 import React from "react";
 
+/**
+   * Render a cell
+   * @namespace Cells
+   * @component
+   * @category Table
+   * @subcategory TableBody
+   * @param {Object} props
+   * @requires React
+*/
+
+
 export default function Cells(props) {
   const { headersArray, arr, index1 } = props;
   return (
@@ -27,3 +38,4 @@ export default function Cells(props) {
     </>
   );
 }
+

@@ -3,6 +3,16 @@ import Cells from "./Cells";
 import { sortingColumn } from "../../../functions/sort";
 import { filterContent } from "../../../functions/filter";
 
+/**
+   * Render the rows
+   * @namespace Rows
+   * @component
+   * @category Table
+   * @subcategory TableBody
+   * @param {Object} props
+   * @requires React
+   * @return {JSX} {@link Cells}
+*/
 export default function Rows(props) {
   const {
     rowsContent,
@@ -41,8 +51,8 @@ export default function Rows(props) {
     if (numberOfLignToDisplay > rowsNumber - actualNbrOfFirstLign) {
       setCurrentPage(numberOfPages - 1);
     }
-    setNumberOfPages(numberOfLignToDisplay, sortedAndFilteredRowsContent.length)
-  });
+    setNumberOfPages(sortedAndFilteredRowsContent.length, numberOfLignToDisplay)
+  },[numberOfLignToDisplay, actualNbrOfFirstLign, numberOfPages, rowsNumber, setCurrentPage, setNumberOfPages,sortedAndFilteredRowsContent.length]);
 
   return (
     <>

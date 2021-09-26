@@ -9,7 +9,19 @@ import {
 } from "../constants/rrtable-types";
 import { initialState } from "../initialState/rrtable-initialState";
 
-export const rrtableReducer = (state = initialState, action) => {
+/**
+   * Component's reducer
+   * 
+   * @category Redux
+   * @subcategory Reducer
+   * @param {State} state state of the table
+   * @param {Object} action actions to execute
+   * @param {string} action.type redux action type
+   * @param {any} action.payload payload of action
+   * @return {State} New state modified
+*/
+
+export function rrtableReducer(state = initialState, action) {
   switch (action.type) {
     case INITIATE_STATE:
       return {

@@ -1,6 +1,16 @@
 import React from "react";
 import isSelected from "../../../../functions/isSelected";
 
+/**
+   * Render sets of buttons with ellipsis at the beginning or the end
+   * @namespace EdgeEllipsis
+   * @component
+   * @category Footer
+   * @subcategory PageSelector
+   * @param {Object} props
+   * @requires React
+   * @return {JSX}
+*/
 
 export default function EdgeEllipsis(props) {
   const { currentPage, numberOfPages, setCurrentPage } = props;

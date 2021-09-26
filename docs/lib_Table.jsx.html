@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> lib/Table.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">React-redux-table</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Redux</h2><h3>Global</h3><ul><li><a href="global.html#rrtableReducer">rrtableReducer</a></li></ul></div><div class="category"><h2>Table</h2><h3>Components / Table</h3><ul><li><a href="Cells.html">Cells</a></li><li><a href="module-TableConstructor.html">TableConstructor</a></li><li><a href="Rows.html">Rows</a></li><li><a href="TableBody.html">TableBody</a></li></ul><h3>Components / Header</h3><ul><li><a href="Header.html">Header</a></li></ul><h3>Components</h3><ul><li><a href="Table.html">Table</a></li></ul><h3>Components / Table Coluns Headers</h3><ul><li><a href="TableHeaders.html">TableHeaders</a></li></ul></div><div class="category"><h2>Types Def</h2><h3><a href="global.html">Global</a></h3></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>lib/Table.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect } from "react";
+import Header from "./components/Header/Header";
+import TableConstructor from "./components/TableConstructor/TableConstructor";
+import Footer from "./components/Footer/Footer";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import {
+  initiateState,
+  setCurrentPage,
+  increaseCurrentPage,
+  decreaseCurrentPage,
+  setNumberOfPages,
+  sortColumn,
+  setFilterSearch,
+} from "./redux/actions/rrtable-actions";
+import PropTypes from "prop-types";
+import "./style/style.css";
+
+
+
+/**
+ * Root component of the table
+ * 
+ * @namespace Table
+ * @component
+ * @category Table
+ * @param {typedefs.rowsContent} props 
+ */
+function Table(props) {
+  const {
+    headersArray,
+    rowsContent,
+    title,
+    filter,
+    entriesSelector,
+    showEntries,
+    // redux states
+    currentPage,
+    rowsNumber,
+    numberOfLignToDisplay,
+    numberOfPages,
+    sortingOrder,
+    actualSortedColumn,
+    searchValue,
+    // redux actions
+    initiateState,
+    setCurrentPage,
+    increaseCurrentPage,
+    decreaseCurrentPage,
+    setNumberOfPages,
+    sortColumn,
+    setFilterSearch,
+  } = props;
+
+  useEffect(() => {
+    initiateState(rowsContent.length, entriesSelector[0]);
+  }, [entriesSelector, initiateState, rowsContent.length]);
+  return (
+    &lt;>
+      &lt;div className="rrtable">
+        &lt;div className="rrtable-header">
+          &lt;Header
+            title={title}
+            filter={filter}
+            entriesSelector={entriesSelector}
+            // redux states
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            // redux actions
+            setNumberOfPages={setNumberOfPages}
+            setFilterSearch={setFilterSearch}
+          />
+        &lt;/div>
+
+        &lt;table className="rrtable-table">
+          &lt;TableConstructor
+            headersArray={headersArray}
+            rowsContent={rowsContent}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            sortingOrder={sortingOrder}
+            actualSortedColumn={actualSortedColumn}
+            searchValue={searchValue}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            sortColumn={sortColumn}
+            setNumberOfPages={setNumberOfPages}
+          />
+        &lt;/table>
+        &lt;div className="rrtable-footer">
+          &lt;Footer
+            showEntries={showEntries}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            increaseCurrentPage={increaseCurrentPage}
+            decreaseCurrentPage={decreaseCurrentPage}
+          />
+        &lt;/div>
+      &lt;/div>
+    &lt;/>
+  );
+}
+
+Table.propTypes = {
+  /**
+   * PropTypes
+   */
+  title: PropTypes.string,
+  filter: PropTypes.bool,
+  entriesSelector: PropTypes.array,
+  headersArray: PropTypes.arrayOf(PropTypes.object),
+  rowsContent: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+  showEntries: PropTypes.bool,
+  // redux states
+  currentPage: PropTypes.number,
+  rowsNumber: PropTypes.number,
+  numberOfLignToDisplay: PropTypes.number,
+  numberOfPages: PropTypes.number,
+  sortingOrder: PropTypes.number,
+  actualSortedColumn: PropTypes.string,
+  searchValue: PropTypes.string,
+  // redux actions
+  initiateState: PropTypes.elementType,
+  setCurrentPage: PropTypes.elementType,
+  increaseCurrentPage: PropTypes.elementType,
+  decreaseCurrentPage: PropTypes.elementType,
+  setNumberOfPages: PropTypes.elementType,
+  sortColumn: PropTypes.elementType,
+  setFilterSearch: PropTypes.elementType,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    currentPage: state.rrtable.currentPage,
+    rowsNumber: state.rrtable.rowsNumber,
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+    numberOfPages: state.rrtable.numberOfPages,
+    sortingOrder: state.rrtable.sortingOrder,
+    actualSortedColumn: state.rrtable.actualSortedColumn,
+    searchValue: state.rrtable.searchValue,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      initiateState,
+      setCurrentPage,
+      increaseCurrentPage,
+      decreaseCurrentPage,
+      setNumberOfPages,
+      sortColumn,
+      setFilterSearch,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>
