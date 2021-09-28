@@ -7,7 +7,7 @@
  * @returns {bool} - True if the value in first array is bigger than in the second, false if not
  */
 function compareArrays(arr1, arr2, index) {
-  return arr1[index].cellValue > arr2[index].cellValue ? true : false;
+  return arr1[index].cellValue.toLowerCase() > arr2[index].cellValue.toLowerCase() ? true : false;
 }
 
 /**
