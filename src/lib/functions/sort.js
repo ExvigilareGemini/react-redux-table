@@ -4,15 +4,14 @@
  * @param {Object[]} arr1 - First array
  * @param {Object[]} arr2 - Second array
  * @param {number} index - The place of the object to compare inside both arrays
- * @returns {bool} - True if the value in first array is bagger than in the second, false if not
+ * @returns {bool} - True if the value in first array is bigger than in the second, false if not
  */
 function compareArrays(arr1, arr2, index) {
-  console.log(arr1)
   return arr1[index].cellValue > arr2[index].cellValue ? true : false;
 }
 
 /**
- * Invert the string date format from dd/mm/yyyy to yyyy/mm/dd and vice versa 
+ * Invert the string date format from dd/mm/yyyy to yyyy/mm/dd and vice versa
  * @category Functions
  * @param {string} date - The date to invert
  * @returns {string} - The invertes date
@@ -47,25 +46,26 @@ const regexIsDateFormat = /[0-9]{2}[/][0-9]{2}[/][0-9]{4}/;
  * @returns {Array.Object[]} The sorted array
  */
 export function sortingColumn(arrayToSort, sortingOrder, categoryToCompare) {
-  if (sortingOrder !== 0 || categoryToCompare !== "") {
-    arrayToSort.sort((arr1, arr2) => {
-      const indexOfCorrespondingCategory = arr1.findIndex(
-        (el) => el.category === categoryToCompare
-      );
-      // If in date format
-      if (
-        regexIsDateFormat.test(arr1[indexOfCorrespondingCategory].cellValue)
-      ) {
-        if (
-          compareArraysOfDateFormat(arr1, arr2, indexOfCorrespondingCategory)
-        ) {
-          return sortingOrder;
-        }
-      } else if (compareArrays(arr1, arr2, indexOfCorrespondingCategory)) {
+  if (
+    sortingOrder === 0 ||
+    sortingOrder === undefined ||
+    categoryToCompare === "" ||
+    categoryToCompare === undefined
+  ) {
+    return arrayToSort;
+  }
+  arrayToSort.sort((arr1, arr2) => {
+    const indexOfCorrespondingCategory = arr1.findIndex(
+      (el) => el.category === categoryToCompare
+    );
+    // If in date format
+    if (regexIsDateFormat.test(arr1[indexOfCorrespondingCategory].cellValue)) {
+      if (compareArraysOfDateFormat(arr1, arr2, indexOfCorrespondingCategory)) {
         return sortingOrder;
       }
-      return -sortingOrder;
-    });
-  }
-  return arrayToSort;
+    } else if (compareArrays(arr1, arr2, indexOfCorrespondingCategory)) {
+      return sortingOrder;
+    }
+    return -sortingOrder;
+  });
 }
