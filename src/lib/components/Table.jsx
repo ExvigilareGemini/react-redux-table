@@ -14,17 +14,16 @@ import {
   setFilterSearch,
 } from "../redux/actions/rrtable-actions";
 import PropTypes from "prop-types";
+import testingArray from "../functions/testingArray";
 import "../style/style.css";
-
-
 
 /**
  * Root component of the table
- * 
+ *
  * @namespace Table
  * @component
  * @category Table
- * @param {typedefs.rowsContent} props 
+ * @param {rowsContent} props
  */
 function Table(props) {
   const {
@@ -52,9 +51,12 @@ function Table(props) {
     setFilterSearch,
   } = props;
 
+  const testedHeadersArray = testingArray(headersArray, Object.keys({headersArray})[0]);
+  const testedRowsContent = testingArray(rowsContent, Object.keys({rowsContent})[0]);
+
   useEffect(() => {
-    initiateState(rowsContent.length, entriesSelector[0]);
-  }, [entriesSelector, initiateState, rowsContent.length]);
+    initiateState(testedRowsContent.length, entriesSelector[0]);
+  }, [entriesSelector, initiateState, testedRowsContent.length]);
   return (
     <>
       <div className="rrtable">
@@ -74,8 +76,8 @@ function Table(props) {
 
         <table className="rrtable-table">
           <TableConstructor
-            headersArray={headersArray}
-            rowsContent={rowsContent}
+            headersArray={testedHeadersArray}
+            rowsContent={testedRowsContent}
             // redux states
             currentPage={currentPage}
             rowsNumber={rowsNumber}
@@ -145,7 +147,8 @@ const mapStateToProps = (state) => {
     numberOfPages: state.numberOfPages,
     sortingOrder: state.sortingOrder,
     actualSortedColumn: state.actualSortedColumn,
-    searchValue: state.search};
+    searchValue: state.search,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
