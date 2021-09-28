@@ -7,6 +7,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("core-js/modules/es.regexp.exec.js");
+
+require("core-js/modules/es.string.search.js");
+
 var _react = _interopRequireWildcard(require("react"));
 
 var _Header = _interopRequireDefault(require("./Header/Header"));
@@ -144,13 +148,13 @@ Table.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    currentPage: state.rrtable.currentPage,
-    rowsNumber: state.rrtable.rowsNumber,
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
-    numberOfPages: state.rrtable.numberOfPages,
-    sortingOrder: state.rrtable.sortingOrder,
-    actualSortedColumn: state.rrtable.actualSortedColumn,
-    searchValue: state.rrtable.searchValue
+    currentPage: state.currentPage,
+    rowsNumber: state.rowsNumber,
+    numberOfLignToDisplay: state.numberOfLignToDisplay,
+    numberOfPages: state.numberOfPages,
+    sortingOrder: state.sortingOrder,
+    actualSortedColumn: state.actualSortedColumn,
+    searchValue: state.search
   };
 };
 

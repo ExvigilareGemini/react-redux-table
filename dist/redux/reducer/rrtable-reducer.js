@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rrtableReducer = rrtableReducer;
+exports.rrtable = rrtable;
 
 var _rrtableTypes = require("../constants/rrtable-types");
 
@@ -16,79 +16,63 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
-   * Component's reducer
-   * 
-   * @category Redux
-   * @subcategory Reducer
-   * @param {State} state state of the table
-   * @param {Object} action actions to execute
-   * @param {string} action.type redux action type
-   * @param {any} action.payload payload of action
-   * @return {State} New state modified
-*/
-function rrtableReducer() {
+ * Component's reducer
+ *
+ * @category Redux
+ * @subcategory Reducer
+ * @param {State} state state of the table
+ * @param {Object} action actions to execute
+ * @param {string} action.type redux action type
+ * @param {any} action.payload payload of action
+ * @return {State} New state modified
+ */
+function rrtable() {
   let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _rrtableInitialState.initialState;
   let action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case _rrtableTypes.INITIATE_STATE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          rowsNumber: action.rowsNumber,
-          numberOfLignToDisplay: action.numberOfLignToDisplay,
-          numberOfPages: action.numberOfPages
-        })
+        rowsNumber: action.rowsNumber,
+        numberOfLignToDisplay: action.numberOfLignToDisplay,
+        numberOfPages: action.numberOfPages
       });
 
     case _rrtableTypes.SET_CURRENT_PAGE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          currentPage: action.currentPage
-        })
+        currentPage: action.currentPage
       });
 
     case _rrtableTypes.INCREASE_CURRENT_PAGE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          currentPage: action.currentPage + 1
-        })
+        currentPage: action.currentPage + 1
       });
 
     case _rrtableTypes.DECREASE_CURRENT_PAGE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          currentPage: action.currentPage - 1
-        })
+        currentPage: action.currentPage - 1
       });
 
     case _rrtableTypes.SET_NUMBER_OF_PAGES:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          numberOfLignToDisplay: action.numberOfLignToDisplay,
-          rowsNumber: action.rowsNumber,
-          numberOfPages: action.numberOfPages
-        })
+        numberOfLignToDisplay: action.numberOfLignToDisplay,
+        rowsNumber: action.rowsNumber,
+        numberOfPages: action.numberOfPages
       });
 
     case _rrtableTypes.SORT_COLUMN:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          actualSortedColumn: action.actualSortedColumn,
-          sortingOrder: action.sortingOrder
-        })
+        actualSortedColumn: action.actualSortedColumn,
+        sortingOrder: action.sortingOrder
       });
 
     case _rrtableTypes.SET_FILTER_SEARCH:
       return _objectSpread(_objectSpread({}, state), {}, {
-        rrtable: _objectSpread(_objectSpread({}, state.rrtable), {}, {
-          searchValue: action.searchValue,
-          currentPage: 0
-        })
+        searchValue: action.searchValue,
+        currentPage: 0
       });
 
     default:
       return state;
   }
 }
-
-;
