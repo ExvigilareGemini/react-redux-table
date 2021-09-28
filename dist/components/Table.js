@@ -27,6 +27,8 @@ var _rrtableActions = require("../redux/actions/rrtable-actions");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _testingArray = _interopRequireDefault(require("../functions/testingArray"));
+
 require("../style/style.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -37,11 +39,11 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 /**
  * Root component of the table
- * 
+ *
  * @namespace Table
  * @component
  * @category Table
- * @param {typedefs.rowsContent} props 
+ * @param {rowsContent} props
  */
 function Table(props) {
   const {
@@ -68,9 +70,15 @@ function Table(props) {
     sortColumn,
     setFilterSearch
   } = props;
+  const testedHeadersArray = (0, _testingArray.default)(headersArray, Object.keys({
+    headersArray
+  })[0]);
+  const testedRowsContent = (0, _testingArray.default)(rowsContent, Object.keys({
+    rowsContent
+  })[0]);
   (0, _react.useEffect)(() => {
-    initiateState(rowsContent.length, entriesSelector[0]);
-  }, [entriesSelector, initiateState, rowsContent.length]);
+    initiateState(testedRowsContent.length, entriesSelector[0]);
+  }, [entriesSelector, initiateState, testedRowsContent.length]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "rrtable"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -88,8 +96,8 @@ function Table(props) {
   })), /*#__PURE__*/_react.default.createElement("table", {
     className: "rrtable-table"
   }, /*#__PURE__*/_react.default.createElement(_TableConstructor.default, {
-    headersArray: headersArray,
-    rowsContent: rowsContent // redux states
+    headersArray: testedHeadersArray,
+    rowsContent: testedRowsContent // redux states
     ,
     currentPage: currentPage,
     rowsNumber: rowsNumber,
