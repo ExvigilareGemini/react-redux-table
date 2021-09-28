@@ -68,4 +68,5 @@ export function sortingColumn(arrayToSort, sortingOrder, categoryToCompare) {
     }
     return -sortingOrder;
   });
+  return arrayToSort;
 }
