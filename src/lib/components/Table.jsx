@@ -139,14 +139,13 @@ Table.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    currentPage: state.rrtable.currentPage,
-    rowsNumber: state.rrtable.rowsNumber,
-    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
-    numberOfPages: state.rrtable.numberOfPages,
-    sortingOrder: state.rrtable.sortingOrder,
-    actualSortedColumn: state.rrtable.actualSortedColumn,
-    searchValue: state.rrtable.searchValue,
-  };
+    currentPage: state.currentPage,
+    rowsNumber: state.rowsNumber,
+    numberOfLignToDisplay: state.numberOfLignToDisplay,
+    numberOfPages: state.numberOfPages,
+    sortingOrder: state.sortingOrder,
+    actualSortedColumn: state.actualSortedColumn,
+    searchValue: state.search};
 };
 
 const mapDispatchToProps = (dispatch) => {

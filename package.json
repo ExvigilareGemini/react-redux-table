@@ -1,10 +1,18 @@
 {
   "name": "react-redux-table",
   "description": "A data-table made with react and redux",
-  "author": "ExvigilareGemini",
-  "keywords": ["table", "datatable", "react", "redux"],
-  "version": "0.1.0",
+  "author": "https://github.com/ExvigilareGemini",
+  "keywords": ["table", "datatable", "react", "react.js", "redux"],
+  "version": "0.1.7",
+  "homepage": "https://github.com/ExvigilareGemini/react-redux-table#readme",
   "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExvigilareGemini/react-redux-table.git"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@reduxjs/toolkit": "^1.6.1",

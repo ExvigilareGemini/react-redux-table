@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import Table from "./lib/components/Table"
-import { rrtableReducer } from "./lib/redux/reducer/rrtable-reducer";
+import { rrtable } from "./lib/redux/reducer/rrtable-reducer";
 import { headersArray, rowsContent, entriesSelector } from "./datas/mock";
 
 const store = configureStore({
-  reducer: rrtableReducer,
+  reducer: rrtable,
 });
 
 const App = () => {
