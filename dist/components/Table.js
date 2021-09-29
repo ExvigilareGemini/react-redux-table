@@ -7,10 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/es.regexp.exec.js");
-
-require("core-js/modules/es.string.search.js");
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _Header = _interopRequireDefault(require("./Header/Header"));
@@ -162,7 +158,7 @@ const mapStateToProps = state => {
     numberOfPages: state.rrtable.numberOfPages,
     sortingOrder: state.rrtable.sortingOrder,
     actualSortedColumn: state.rrtable.actualSortedColumn,
-    searchValue: state.rrtable.search
+    searchValue: state.rrtable.searchValue
   };
 };
 

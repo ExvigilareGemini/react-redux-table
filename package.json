@@ -3,7 +3,7 @@
   "description": "A data-table made with react and redux",
   "author": "https://github.com/ExvigilareGemini",
   "keywords": ["table", "datatable", "react", "react.js", "redux"],
-  "version": "0.1.13",
+  "version": "0.1.14",
   "homepage": "https://github.com/ExvigilareGemini/react-redux-table#readme",
   "private": false,
   "main": "dist/index.js",
