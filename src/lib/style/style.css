@@ -73,6 +73,9 @@
   padding: .2rem .8rem;
   cursor: pointer;
   border-bottom: 2px solid #97999b;
+  background-image: url(https://cdn.datatables.net/1.10.21/images/sort_both.png);
+  background-repeat: no-repeat;
+  background-position: right -.2rem top .625rem;
 }
 
 .rrtable-row {

@@ -19,6 +19,9 @@ $cell-background-dark: #f0f3f5;
     padding: 0.2rem 0.8rem;
     border-bottom: 2px solid $border-color-dark;
     cursor: pointer;
+    background-image: url(https://cdn.datatables.net/1.10.21/images/sort_both.png);
+    background-repeat: no-repeat;
+    background-position: right -0.2rem top $height/4;
   }
 }
 
