@@ -147,7 +147,7 @@ const mapStateToProps = (state) => {
     numberOfPages: state.rrtable.numberOfPages,
     sortingOrder: state.rrtable.sortingOrder,
     actualSortedColumn: state.rrtable.actualSortedColumn,
-    searchValue: state.rrtable.search,
+    searchValue: state.rrtable.searchValue,
   };
 };
 
