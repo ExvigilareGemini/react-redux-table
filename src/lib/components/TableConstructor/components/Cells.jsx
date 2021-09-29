@@ -9,8 +9,6 @@ import React from "react";
    * @param {Object} props
    * @requires React
 */
-
-
 export default function Cells(props) {
   const { headersArray, arr, index1 } = props;
   return (

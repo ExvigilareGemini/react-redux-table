@@ -61,7 +61,7 @@
 .rrtable-table {
   width: 100%;
   border-spacing: 0;
-  border: 2px solid #f0f3f5;
+  border: 2px solid #eaedf0;
 }
 
 .rrtable-table-header-row {
@@ -70,23 +70,40 @@
 }
 
 .rrtable-table-header-cell {
-  padding-left: .8rem;
-  border-right: 1px solid #eaedf0;
+  padding: .2rem .8rem;
+  cursor: pointer;
   border-bottom: 2px solid #97999b;
-  border-left: 1px solid #eaedf0;
 }
 
 .rrtable-row {
   height: 2.5rem;
   text-align: left;
+  background-color: white;
 }
 
 .rrtable-row:nth-child(2n+1) {
   background-color: #f0f3f5;
 }
 
+.rrtable-row:hover {
+  opacity: .8;
+}
+
 .rrtable-row-cell {
   padding-left: .8rem;
-  border-right: 1px solid #eaedf0;
-  border-left: 1px solid #eaedf0;
+}
+
+.rrtable-table-body {
+  position: relative;
+}
+
+.rrtable-table-body::before {
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: black;
 }
