@@ -63,7 +63,8 @@ function Rows(props) {
     }, /*#__PURE__*/_react.default.createElement(_Cells.default, {
       headersArray: headersArray,
       arr: arr,
-      index1: index1
+      index1: index1,
+      actualSortedColumn: actualSortedColumn
     }));
   }));
 }
