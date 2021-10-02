@@ -59,7 +59,7 @@ export default function Rows(props) {
       {rowsToDisplay.map((arr, index1) => {
         return (
           <tr className="rrtable-row" key={index1}>
-            <Cells headersArray={headersArray} arr={arr} index1={index1} />
+            <Cells headersArray={headersArray} arr={arr} index1={index1} actualSortedColumn={actualSortedColumn} />
           </tr>
         );
       })}

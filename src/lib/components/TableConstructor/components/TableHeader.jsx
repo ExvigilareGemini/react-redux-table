@@ -1,15 +1,23 @@
 import React from "react";
 
-/**
-   * Render columns headers
-   * @namespace TableHeaders
-   * @component
-   * @category Table
-   * @subcategory
-   * @param {Object} props
-   * @requires React
-*/
+function columnIsSorted(category, actualSortedColumn, sortingOrder) {
+  if (category === actualSortedColumn) {
+    return sortingOrder === -1
+      ? "rrtable-table-header-cell selectedBigger"
+      : "rrtable-table-header-cell selectedSmaller";
+  }
+  return "rrtable-table-header-cell";
+}
 
+/**
+ * Render columns headers
+ * @namespace TableHeaders
+ * @component
+ * @category Table
+ * @subcategory
+ * @param {Object} props
+ * @requires React
+ */
 export default function TableHeader(props) {
   const { headersArray, sortColumn, sortingOrder, actualSortedColumn } = props;
 
@@ -20,7 +28,11 @@ export default function TableHeader(props) {
           return (
             <th
               key={el.title + index}
-              className="rrtable-table-header-cell"
+              className={columnIsSorted(
+                el.category,
+                actualSortedColumn,
+                sortingOrder
+              )}
               onClick={() =>
                 sortColumn(actualSortedColumn, el.category, sortingOrder)
               }

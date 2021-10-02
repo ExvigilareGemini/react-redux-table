@@ -1,16 +1,23 @@
 import React from "react";
 
+function columnIsSorted(category, actualSortedColumn) {
+  if (category === actualSortedColumn) {
+    return "rrtable-row-cell selected";
+  }
+  return "rrtable-row-cell";
+}
+
 /**
-   * Render a cell
-   * @namespace Cells
-   * @component
-   * @category Table
-   * @subcategory TableBody
-   * @param {Object} props
-   * @requires React
-*/
+ * Render a cell
+ * @namespace Cells
+ * @component
+ * @category Table
+ * @subcategory TableBody
+ * @param {Object} props
+ * @requires React
+ */
 export default function Cells(props) {
-  const { headersArray, arr, index1 } = props;
+  const { headersArray, arr, index1, actualSortedColumn } = props;
   return (
     <>
       {headersArray.map((head, index2) => {
@@ -27,8 +34,9 @@ export default function Cells(props) {
             </td>
           );
         }
+        console.log(arr[indexOfCorrespondingCategory]);
         return (
-          <td className="rrtable-row-cell" key={index1 + index2}>
+          <td className={columnIsSorted(arr[indexOfCorrespondingCategory].category, actualSortedColumn)} key={index1 + index2}>
             {arr[indexOfCorrespondingCategory].cellValue}
           </td>
         );
@@ -36,4 +44,3 @@ export default function Cells(props) {
     </>
   );
 }
-

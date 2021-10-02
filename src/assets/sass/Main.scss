@@ -4,6 +4,26 @@ $border-color-dark: #97999b;
 $cell-background-light: white;
 $cell-background-dark: #f0f3f5;
 
+@mixin backgroundParams($urlLink) {
+  background-image: url($urlLink);
+  background-repeat: no-repeat;
+  background-position: right -0.2rem top $height/4;
+}
+
+@mixin darkerBackground($zindex : 0, $opa : 1) {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: $opa;
+    z-index: $zindex;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .rrtable-table {
   width: 100%;
   border: 2px solid $border-color-light;
@@ -19,9 +39,19 @@ $cell-background-dark: #f0f3f5;
     padding: 0.2rem 0.8rem;
     border-bottom: 2px solid $border-color-dark;
     cursor: pointer;
-    background-image: url(https://cdn.datatables.net/1.10.21/images/sort_both.png);
-    background-repeat: no-repeat;
-    background-position: right -0.2rem top $height/4;
+    @include backgroundParams(
+      "https://cdn.datatables.net/1.10.21/images/sort_both.png"
+    );
+    &.selectedSmaller {
+      @include backgroundParams(
+        "https://cdn.datatables.net/1.10.21/images/sort_desc.png"
+      );
+    }
+    &.selectedBigger {
+      @include backgroundParams(
+        "https://cdn.datatables.net/1.10.21/images/sort_asc.png"
+      );
+    }
   }
 }
 
@@ -37,19 +67,14 @@ $cell-background-dark: #f0f3f5;
   }
   &-cell {
     padding-left: 0.8rem;
+    position:relative;
+    &.selected{
+      @include darkerBackground(0 , 0.05);
+    }
   }
 }
 
 .rrtable-table-body {
   position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    background-color: black;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-  }
+  @include darkerBackground(-10);
 }
