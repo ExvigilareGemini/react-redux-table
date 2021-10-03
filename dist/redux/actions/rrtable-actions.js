@@ -28,7 +28,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
  * @returns {initiateStateReturn}
  */
 function initiateState(rowsNumber, arrayOfLignToDisplayToTest) {
-  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? 1 : arrayOfLignToDisplayToTest[0];
+  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? rowsNumber : arrayOfLignToDisplayToTest[0];
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.INITIATE_STATE,
@@ -93,7 +93,8 @@ function decreaseCurrentPage(currentPage) {
  */
 
 
-function setNumberOfPages(rowsNumber, numberOfLignToDisplay) {
+function setNumberOfPages(rowsNumber, numberOfLignToDisplayToTest) {
+  const numberOfLignToDisplay = numberOfLignToDisplayToTest === undefined ? rowsNumber : numberOfLignToDisplayToTest;
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.SET_NUMBER_OF_PAGES,

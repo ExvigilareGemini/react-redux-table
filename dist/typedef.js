@@ -30,7 +30,7 @@
  * Array containing arrays of row information
  * @typedef rowsContent
  * @type {Array}
- * @property {Array.<cellContent>} Row The content of a row
+ * @property {...Array.<cellContent>} Row The content of a row
  * @category Types Def
  */
 
