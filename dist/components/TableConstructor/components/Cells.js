@@ -45,7 +45,6 @@ function Cells(props) {
       }, "Error");
     }
 
-    console.log(arr[indexOfCorrespondingCategory]);
     return /*#__PURE__*/_react.default.createElement("td", {
       className: columnIsSorted(arr[indexOfCorrespondingCategory].category, actualSortedColumn),
       key: index1 + index2

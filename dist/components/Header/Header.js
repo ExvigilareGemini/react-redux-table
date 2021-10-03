@@ -34,7 +34,7 @@ function Header(props) {
   }, entriesSelector && /*#__PURE__*/_react.default.createElement("label", {
     className: "rrtable-header-label"
   }, "Show", /*#__PURE__*/_react.default.createElement("select", {
-    className: "rrtable-header-input",
+    className: "rrtable-header-input-select",
     defaultValue: numberOfLignToDisplay,
     onChange: e => setNumberOfPages(rowsNumber, parseInt(e.target.value))
   }, entriesSelector.map((el, index) => {
@@ -43,7 +43,7 @@ function Header(props) {
       key: el + index
     }, el);
   }))), filter && /*#__PURE__*/_react.default.createElement("label", {
-    className: "rrtable-header-label"
+    className: "rrtable-header-label-input"
   }, "Search", /*#__PURE__*/_react.default.createElement("input", {
     className: "rrtable-header-input",
     type: "search",
