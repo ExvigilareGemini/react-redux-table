@@ -39,7 +39,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
  * @namespace Table
  * @component
  * @category Table
- * @param {rowsContent} props
+ * @param {props} props
  */
 function Table(props) {
   const {
@@ -49,6 +49,7 @@ function Table(props) {
     filter,
     entriesSelector,
     showEntries,
+    hideButtons,
     // redux states
     currentPage,
     rowsNumber,
@@ -109,7 +110,8 @@ function Table(props) {
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "rrtable-footer"
   }, /*#__PURE__*/_react.default.createElement(_Footer.default, {
-    showEntries: showEntries // redux states
+    showEntries: showEntries,
+    hideButtons: hideButtons // redux states
     ,
     currentPage: currentPage,
     rowsNumber: rowsNumber,
@@ -132,6 +134,7 @@ Table.propTypes = {
   headersArray: _propTypes.default.arrayOf(_propTypes.default.object),
   rowsContent: _propTypes.default.arrayOf(_propTypes.default.arrayOf(_propTypes.default.object)),
   showEntries: _propTypes.default.bool,
+  hideButtons: _propTypes.default.bool,
   // redux states
   currentPage: _propTypes.default.number,
   rowsNumber: _propTypes.default.number,
