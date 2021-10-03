@@ -1,4 +1,4 @@
 import Table from "./components/Table";
-import { rrtable } from "./redux/reducer/rrtable-reducer";
+import rrtableReducer from "./redux/reducer/rrtable-reducer";
 
-export { Table, rrtable };
+export { Table, rrtableReducer };
