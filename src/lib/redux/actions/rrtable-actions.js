@@ -8,7 +8,8 @@ import * as types from "../constants/rrtable-types";
  * @param {number} numberOfLignToDisplay - numberOfLignToDisplay
  * @returns {initiateStateReturn}
  */
-export function initiateState(rowsNumber, numberOfLignToDisplay) {
+export function initiateState(rowsNumber, arrayOfLignToDisplayToTest) {
+  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? 1 : arrayOfLignToDisplayToTest[0];
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.INITIATE_STATE,

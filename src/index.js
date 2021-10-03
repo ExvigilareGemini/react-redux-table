@@ -15,11 +15,11 @@ const App = () => {
     <>
       <Provider store={store}>
         <Table
-          headersArray={headersArray}
-          rowsContent={rowsContent}
+          headersArray={[]}
+          rowsContent={[]}
           title="Current Employees"
           filter={true}
-          entriesSelector={entriesSelector}
+          entriesSelector={[]}
           showEntries={true}
         />
       </Provider>

@@ -18,7 +18,6 @@ export default function Header(props) {
     numberOfLignToDisplay,
     setFilterSearch,
   } = props;
-
   return (
     <>
       {title && <h1 className="rrtable-header-title">{title}</h1>}

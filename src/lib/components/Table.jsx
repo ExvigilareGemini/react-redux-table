@@ -53,9 +53,8 @@ function Table(props) {
 
   const testedHeadersArray = testingArray(headersArray, Object.keys({headersArray})[0]);
   const testedRowsContent = testingArray(rowsContent, Object.keys({rowsContent})[0]);
-
   useEffect(() => {
-    initiateState(testedRowsContent.length, entriesSelector[0]);
+    initiateState(testedRowsContent.length, entriesSelector);
   }, [entriesSelector, initiateState, testedRowsContent.length]);
   return (
     <>

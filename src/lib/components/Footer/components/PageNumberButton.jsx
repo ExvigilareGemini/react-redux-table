@@ -21,7 +21,7 @@ export default function PageNumberButton(props) {
 
   return (
     <>
-      {Array(numberOfPages)
+      {numberOfPages && Array(numberOfPages)
         .fill(null)
         .map((el, index) => {
           return (
