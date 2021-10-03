@@ -9,7 +9,7 @@ import * as types from "../constants/rrtable-types";
  * @returns {initiateStateReturn}
  */
 export function initiateState(rowsNumber, arrayOfLignToDisplayToTest) {
-  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? 1 : arrayOfLignToDisplayToTest[0];
+  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? rowsNumber : arrayOfLignToDisplayToTest[0];
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.INITIATE_STATE,
@@ -70,7 +70,8 @@ export function decreaseCurrentPage(currentPage) {
  * @param {number} numberOfLignToDisplay - numberOfLignToDisplay
  * @returns {setNumberOfPagesReturn}
  */
-export function setNumberOfPages(rowsNumber, numberOfLignToDisplay) {
+export function setNumberOfPages(rowsNumber, numberOfLignToDisplayToTest) {
+  const numberOfLignToDisplay = numberOfLignToDisplayToTest === undefined ? rowsNumber : numberOfLignToDisplayToTest;
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.SET_NUMBER_OF_PAGES,
