@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rrtable = rrtable;
+exports.rrtableReducer = rrtableReducer;
 
 var _rrtableTypes = require("../constants/rrtable-types");
 
@@ -26,7 +26,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @param {any} action.payload payload of action
  * @return {State} New state modified
  */
-function rrtable() {
+function rrtableReducer() {
   let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _rrtableInitialState.initialState;
   let action = arguments.length > 1 ? arguments[1] : undefined;
 
