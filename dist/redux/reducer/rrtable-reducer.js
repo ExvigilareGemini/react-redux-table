@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rrtableReducer = rrtableReducer;
+exports.default = rrtableReducer;
 
 var _rrtableTypes = require("../constants/rrtable-types");
 
