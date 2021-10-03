@@ -32,7 +32,7 @@ function PageNumberButton(props) {
     setCurrentPage(index);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, Array(numberOfPages).fill(null).map((el, index) => {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, numberOfPages && Array(numberOfPages).fill(null).map((el, index) => {
     return /*#__PURE__*/_react.default.createElement("button", {
       className: (0, _isSelected.default)(index, currentPage),
       key: index + 1,

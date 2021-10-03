@@ -73,7 +73,7 @@ function Table(props) {
     rowsContent
   })[0]);
   (0, _react.useEffect)(() => {
-    initiateState(testedRowsContent.length, entriesSelector[0]);
+    initiateState(testedRowsContent.length, entriesSelector);
   }, [entriesSelector, initiateState, testedRowsContent.length]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "rrtable"

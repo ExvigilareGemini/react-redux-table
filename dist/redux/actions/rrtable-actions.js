@@ -27,7 +27,8 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
  * @param {number} numberOfLignToDisplay - numberOfLignToDisplay
  * @returns {initiateStateReturn}
  */
-function initiateState(rowsNumber, numberOfLignToDisplay) {
+function initiateState(rowsNumber, arrayOfLignToDisplayToTest) {
+  const numberOfLignToDisplay = arrayOfLignToDisplayToTest === undefined ? 1 : arrayOfLignToDisplayToTest[0];
   const numberOfPages = Math.ceil(rowsNumber / numberOfLignToDisplay);
   return {
     type: types.INITIATE_STATE,

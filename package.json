@@ -12,8 +12,8 @@
     "ui",
     "redux-table"
   ],
-  "version": "0.1.16",
-  "homepage": ".",
+  "version": "0.1.17",
+  "homepage": "https://github.com/ExvigilareGemini/react-redux-table#readme",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
