@@ -9,15 +9,15 @@ Object.defineProperty(exports, "Table", {
     return _Table.default;
   }
 });
-Object.defineProperty(exports, "rrtable", {
+Object.defineProperty(exports, "rrtableReducer", {
   enumerable: true,
   get: function get() {
-    return _rrtableReducer.rrtable;
+    return _rrtableReducer.default;
   }
 });
 
 var _Table = _interopRequireDefault(require("./components/Table"));
 
-var _rrtableReducer = require("./redux/reducer/rrtable-reducer");
+var _rrtableReducer = _interopRequireDefault(require("./redux/reducer/rrtable-reducer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
