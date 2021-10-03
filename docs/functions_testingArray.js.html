@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Footer/components/PageNumberButtonEllipsis.jsx</title>
+  <title> functions/testingArray.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Footer/components/PageNumberButtonEllipsis.jsx</h1>
+                    <h1>functions/testingArray.js</h1>
                 </header>
                 
 
@@ -89,67 +89,18 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import CenterEllipsis from "./PageNumberButtonEllipsis/CenterEllipsis";
-import EdgeEllipsis from "./PageNumberButtonEllipsis/EdgeEllipsis";
-import isSelected from "../../../functions/isSelected";
-
-/**
-   * Render a set of buttons to navigate through pages and ellipsis
-   * @namespace PageNumberButtonEllipsis
-   * @component 
-   * @category Footer
-   * @subcategory PageSelector
-   * @param {Object} props
-   * @requires React
-   * @return {JSX} {@link CenterEllipsis} or {@link EdgeEllipsis}
-*/
-
-export default function PageNumberButtonEllipsis(props) {
-  const { currentPage, numberOfPages, setCurrentPage } = props;
-
-  function changeCurrentPage(index) {
-    setCurrentPage(index);
+            <pre class="prettyprint source linenums"><code>/** Check if array is null
+ *
+ * @param {any} arrayToTest - The array to check
+ * @param {string} name - The name of the array
+ * @returns {Array} - If null, return an empty array, else return arrayToTest
+ */
+export default function testingArray(arrayToTest, name) {
+  if (arrayToTest) {
+    return arrayToTest;
   }
-
-  function isCentered() {
-    if (currentPage &lt;= 3 || currentPage >= numberOfPages - 4) {
-      return false;
-    }
-    return true;
-  }
-
-  return (
-    &lt;>
-      &lt;button
-        className={isSelected(0, currentPage)}
-        key={1}
-        onClick={() => changeCurrentPage(0)}
-      >
-        {1}
-      &lt;/button>
-      {isCentered() ? (
-        &lt;CenterEllipsis
-          currentPage={currentPage}
-          numberOfPages={numberOfPages}
-          setCurrentPage={setCurrentPage}
-        />
-      ) : (
-        &lt;EdgeEllipsis
-          currentPage={currentPage}
-          numberOfPages={numberOfPages}
-          setCurrentPage={setCurrentPage}
-        />
-      )}
-      &lt;button
-        className={isSelected(numberOfPages - 1, currentPage)}
-        key={numberOfPages}
-        onClick={() => changeCurrentPage(numberOfPages)}
-      >
-        {numberOfPages}
-      &lt;/button>
-    &lt;/>
-  );
+  console.log(`${name} is null`);
+  return [];
 }
 </code></pre>
         </article>

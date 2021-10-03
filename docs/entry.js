@@ -52,11 +52,14 @@ reactComponents['PageSelector'] = Component8;
 import Component9 from '../src/lib/components/TableConstructor/components/Rows.jsx';
 reactComponents['Rows'] = Component9;
 
-import Component10 from '../src/lib/Table.jsx';
+import Component10 from '../src/lib/components/Table.jsx';
 reactComponents['Table'] = Component10;
 
-import Component11 from '../src/lib/components/TableConstructor/components/TableBody.jsx';
-reactComponents['TableBody'] = Component11;
+import Component11 from '../src/lib/components/Table.jsx';
+reactComponents['Table'] = Component11;
 
-import Component12 from '../src/lib/components/TableConstructor/components/TableHeader.jsx';
-reactComponents['TableHeader'] = Component12;
+import Component12 from '../src/lib/components/TableConstructor/components/TableBody.jsx';
+reactComponents['TableBody'] = Component12;
+
+import Component13 from '../src/lib/components/TableConstructor/components/TableHeader.jsx';
+reactComponents['TableHeader'] = Component13;

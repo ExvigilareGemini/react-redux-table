@@ -42,6 +42,7 @@
  * @property {bool} [filter] - Wether the filtering functionalitu is present
  * @property {number[]} [entriesSelector] - Wether the selector of displayed rows by page is present, numbers in array represent each options for the selector.
  * @property {bool} [showEntries] - Wether the actual status along pages is displayed
+ * @property {bool} [hideButtons] - True to hide buttons
  * @property {number|ReduxState} currentPage - Number of the current page in the table
  * @property {string|ReduxState} actualSortedColumn - Name of the column's category that is sorted
  * @property {number|ReduxState} sortingOrder - Sorting order : 1 smaller to bigger, -1 bigger to smaller

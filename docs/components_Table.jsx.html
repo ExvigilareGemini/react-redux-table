@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Footer/components/PageNumberButtonEllipsis.jsx</title>
+  <title> components/Table.jsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Footer/components/PageNumberButtonEllipsis.jsx</h1>
+                    <h1>components/Table.jsx</h1>
                 </header>
                 
 
@@ -89,68 +89,177 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import CenterEllipsis from "./PageNumberButtonEllipsis/CenterEllipsis";
-import EdgeEllipsis from "./PageNumberButtonEllipsis/EdgeEllipsis";
-import isSelected from "../../../functions/isSelected";
+            <pre class="prettyprint source linenums"><code>import React, { useEffect } from "react";
+import Header from "./Header/Header";
+import TableConstructor from "./TableConstructor/TableConstructor";
+import Footer from "./Footer/Footer";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import {
+  initiateState,
+  setCurrentPage,
+  increaseCurrentPage,
+  decreaseCurrentPage,
+  setNumberOfPages,
+  sortColumn,
+  setFilterSearch,
+} from "../redux/actions/rrtable-actions";
+import PropTypes from "prop-types";
+import testingArray from "../functions/testingArray";
+import "../style/style.css";
 
 /**
-   * Render a set of buttons to navigate through pages and ellipsis
-   * @namespace PageNumberButtonEllipsis
-   * @component 
-   * @category Footer
-   * @subcategory PageSelector
-   * @param {Object} props
-   * @requires React
-   * @return {JSX} {@link CenterEllipsis} or {@link EdgeEllipsis}
-*/
+ * Root component of the table
+ *
+ * @namespace Table
+ * @component
+ * @category Table
+ * @param {props} props
+ */
+function Table(props) {
+  const {
+    headersArray,
+    rowsContent,
+    title,
+    filter,
+    entriesSelector,
+    showEntries,
+    hideButtons,
+    // redux states
+    currentPage,
+    rowsNumber,
+    numberOfLignToDisplay,
+    numberOfPages,
+    sortingOrder,
+    actualSortedColumn,
+    searchValue,
+    // redux actions
+    initiateState,
+    setCurrentPage,
+    increaseCurrentPage,
+    decreaseCurrentPage,
+    setNumberOfPages,
+    sortColumn,
+    setFilterSearch,
+  } = props;
 
-export default function PageNumberButtonEllipsis(props) {
-  const { currentPage, numberOfPages, setCurrentPage } = props;
-
-  function changeCurrentPage(index) {
-    setCurrentPage(index);
-  }
-
-  function isCentered() {
-    if (currentPage &lt;= 3 || currentPage >= numberOfPages - 4) {
-      return false;
-    }
-    return true;
-  }
-
+  const testedHeadersArray = testingArray(headersArray, Object.keys({headersArray})[0]);
+  const testedRowsContent = testingArray(rowsContent, Object.keys({rowsContent})[0]);
+  useEffect(() => {
+    initiateState(testedRowsContent.length, entriesSelector);
+  }, [entriesSelector, initiateState, testedRowsContent.length]);
   return (
     &lt;>
-      &lt;button
-        className={isSelected(0, currentPage)}
-        key={1}
-        onClick={() => changeCurrentPage(0)}
-      >
-        {1}
-      &lt;/button>
-      {isCentered() ? (
-        &lt;CenterEllipsis
-          currentPage={currentPage}
-          numberOfPages={numberOfPages}
-          setCurrentPage={setCurrentPage}
-        />
-      ) : (
-        &lt;EdgeEllipsis
-          currentPage={currentPage}
-          numberOfPages={numberOfPages}
-          setCurrentPage={setCurrentPage}
-        />
-      )}
-      &lt;button
-        className={isSelected(numberOfPages - 1, currentPage)}
-        key={numberOfPages}
-        onClick={() => changeCurrentPage(numberOfPages)}
-      >
-        {numberOfPages}
-      &lt;/button>
+      &lt;div className="rrtable">
+        &lt;div className="rrtable-header">
+          &lt;Header
+            title={title}
+            filter={filter}
+            entriesSelector={entriesSelector}
+            // redux states
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            // redux actions
+            setNumberOfPages={setNumberOfPages}
+            setFilterSearch={setFilterSearch}
+          />
+        &lt;/div>
+
+        &lt;table className="rrtable-table">
+          &lt;TableConstructor
+            headersArray={testedHeadersArray}
+            rowsContent={testedRowsContent}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            sortingOrder={sortingOrder}
+            actualSortedColumn={actualSortedColumn}
+            searchValue={searchValue}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            sortColumn={sortColumn}
+            setNumberOfPages={setNumberOfPages}
+          />
+        &lt;/table>
+        &lt;div className="rrtable-footer">
+          &lt;Footer
+            showEntries={showEntries}
+            hideButtons={hideButtons}
+            // redux states
+            currentPage={currentPage}
+            rowsNumber={rowsNumber}
+            numberOfLignToDisplay={numberOfLignToDisplay}
+            numberOfPages={numberOfPages}
+            // redux actions
+            setCurrentPage={setCurrentPage}
+            increaseCurrentPage={increaseCurrentPage}
+            decreaseCurrentPage={decreaseCurrentPage}
+          />
+        &lt;/div>
+      &lt;/div>
     &lt;/>
   );
 }
+
+Table.propTypes = {
+  /**
+   * PropTypes
+   */
+  title: PropTypes.string,
+  filter: PropTypes.bool,
+  entriesSelector: PropTypes.array,
+  headersArray: PropTypes.arrayOf(PropTypes.object),
+  rowsContent: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+  showEntries: PropTypes.bool,
+  hideButtons: PropTypes.bool,
+  // redux states
+  currentPage: PropTypes.number,
+  rowsNumber: PropTypes.number,
+  numberOfLignToDisplay: PropTypes.number,
+  numberOfPages: PropTypes.number,
+  sortingOrder: PropTypes.number,
+  actualSortedColumn: PropTypes.string,
+  searchValue: PropTypes.string,
+  // redux actions
+  initiateState: PropTypes.elementType,
+  setCurrentPage: PropTypes.elementType,
+  increaseCurrentPage: PropTypes.elementType,
+  decreaseCurrentPage: PropTypes.elementType,
+  setNumberOfPages: PropTypes.elementType,
+  sortColumn: PropTypes.elementType,
+  setFilterSearch: PropTypes.elementType,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    currentPage: state.rrtable.currentPage,
+    rowsNumber: state.rrtable.rowsNumber,
+    numberOfLignToDisplay: state.rrtable.numberOfLignToDisplay,
+    numberOfPages: state.rrtable.numberOfPages,
+    sortingOrder: state.rrtable.sortingOrder,
+    actualSortedColumn: state.rrtable.actualSortedColumn,
+    searchValue: state.rrtable.searchValue,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      initiateState,
+      setCurrentPage,
+      increaseCurrentPage,
+      decreaseCurrentPage,
+      setNumberOfPages,
+      sortColumn,
+      setFilterSearch,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
 </code></pre>
         </article>
     </section>

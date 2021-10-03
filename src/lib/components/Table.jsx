@@ -23,7 +23,7 @@ import "../style/style.css";
  * @namespace Table
  * @component
  * @category Table
- * @param {rowsContent} props
+ * @param {props} props
  */
 function Table(props) {
   const {
@@ -33,6 +33,7 @@ function Table(props) {
     filter,
     entriesSelector,
     showEntries,
+    hideButtons,
     // redux states
     currentPage,
     rowsNumber,
@@ -94,6 +95,7 @@ function Table(props) {
         <div className="rrtable-footer">
           <Footer
             showEntries={showEntries}
+            hideButtons={hideButtons}
             // redux states
             currentPage={currentPage}
             rowsNumber={rowsNumber}
@@ -120,6 +122,7 @@ Table.propTypes = {
   headersArray: PropTypes.arrayOf(PropTypes.object),
   rowsContent: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
   showEntries: PropTypes.bool,
+  hideButtons: PropTypes.bool,
   // redux states
   currentPage: PropTypes.number,
   rowsNumber: PropTypes.number,
