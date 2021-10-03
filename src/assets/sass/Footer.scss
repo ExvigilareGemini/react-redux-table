@@ -3,6 +3,9 @@ $button-width: 2rem;
 $margin: 0.2rem;
 
 .rrtable-pageSelector {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  justify-self: end;
   display: flex;
   align-items: center;
   &-pageButton {
@@ -32,8 +35,8 @@ $margin: 0.2rem;
 
 .rrtable-footer {
   &-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 0 1rem;
-    justify-content: space-between;
   }
 }

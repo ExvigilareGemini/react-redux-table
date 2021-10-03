@@ -1,5 +1,8 @@
 .rrtable-pageSelector {
   display: flex;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  justify-self: end;
   align-items: center;
 }
 
@@ -33,9 +36,9 @@
 }
 
 .rrtable-footer-container {
-  display: flex;
+  display: grid;
   padding: 0 1rem;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
 }
 
 .rrtable-header-title {
@@ -47,15 +50,21 @@
   transform: translateX(-50%);
 }
 
-.rrtable-header-input {
+.rrtable-header-label {
   margin-left: .5rem;
 }
 
+.rrtable-header-label-input {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  justify-self: end;
+}
+
 .rrtable-header-labelContainer {
-  display: flex;
+  display: grid;
   margin: .5rem 0;
   padding: 0 1rem;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
 }
 
 .rrtable-table {

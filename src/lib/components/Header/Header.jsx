@@ -26,7 +26,7 @@ export default function Header(props) {
           <label className="rrtable-header-label">
             Show
             <select
-              className="rrtable-header-input"
+              className="rrtable-header-input-select"
               defaultValue={numberOfLignToDisplay}
               onChange={(e) =>
                 setNumberOfPages(rowsNumber, parseInt(e.target.value))
@@ -43,7 +43,7 @@ export default function Header(props) {
           </label>
         )}
         {filter && (
-          <label className="rrtable-header-label">
+          <label className="rrtable-header-label-input">
             Search
             <input
               className="rrtable-header-input"

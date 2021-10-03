@@ -4,13 +4,18 @@
     margin-left: 50%;
     transform: translateX(-50%);
   }
-  &-input {
+  &-label {
     margin-left: 0.5rem;
+    &-input {
+      grid-column-start: 2;
+      grid-column-end: 2;
+      justify-self: end;
+    }
   }
   &-labelContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 0 1rem;
     margin: 0.5rem 0;
-    justify-content: space-between;
   }
 }

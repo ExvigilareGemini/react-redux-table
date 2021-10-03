@@ -34,7 +34,6 @@ export default function Cells(props) {
             </td>
           );
         }
-        console.log(arr[indexOfCorrespondingCategory]);
         return (
           <td className={columnIsSorted(arr[indexOfCorrespondingCategory].category, actualSortedColumn)} key={index1 + index2}>
             {arr[indexOfCorrespondingCategory].cellValue}
