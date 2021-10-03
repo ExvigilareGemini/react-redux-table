@@ -20,6 +20,30 @@ yarn add react-redux-table
 
 ---
 
+You must install and configure [React], [Redux] and [React-Redux] in your project.
+
+## Redux configuration of react-redux-table
+
+---
+
+You must add `rrtableReducer` to your project using [combineReducers] (or in your [configureStore] if you are using [@reduxjs/toolkit]) in the name of `rrtable`.
+
+### combineReducers
+
+```sh
+
+```
+
+### configureStore
+
+```sh
+import { rrtableReducer } from "./lib/redux/reducer/rrtable-reducer";
+
+const store = configureStore({
+  reducer:  { yourReducers : yourReducers, rrtable: rrtableReducer },
+});
+```
+
 ## Usage
 
 ---
@@ -48,3 +72,6 @@ class Component extends React.Component {
 [react-redux]: https://github.com/reactjs/react-redux
 [react]: https://github.com/facebook/react
 [redux]: https://github.com/reactjs/redux
+[combinereducers]: https://redux.js.org/api/combinereducers
+[configurestore]: https://redux.js.org/usage/configuring-your-store#the-solution-configurestore
+[@reduxjs/toolkit]: https://redux.js.org/introduction/getting-started

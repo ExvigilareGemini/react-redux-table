@@ -21,7 +21,7 @@ import { initialState } from "../initialState/rrtable-initialState";
  * @return {State} New state modified
  */
 
-export function rrtableReducer(state = initialState, action) {
+export default function rrtableReducer(state = initialState, action) {
   switch (action.type) {
     case INITIATE_STATE:
       return {
