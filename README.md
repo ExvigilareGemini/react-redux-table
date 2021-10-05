@@ -32,7 +32,7 @@ React-redux-table state must be present in the store inside the object `rrtable`
 
 ### *Configuration*
 
-You must add `rrtableReducer` to your project using [combineReducers] (or in your [configureStore] if you are using [@reduxjs/toolkit]) in the name of `rrtable`.
+You must add `rrtableReducer` to your project using [combineReducers] in the name of `rrtable`.
 
 #### - combineReducers
 
@@ -44,16 +44,6 @@ export const rootReducer = combineReducers({
   rrtable: rrtableReducer,
 });
 
-```
-
-#### - configureStore
-
-```sh
-import { rrtableReducer } from "./lib/redux/reducer/rrtable-reducer";
-
-const store = configureStore({
-  reducer:  { yourReducers : yourReducers, rrtable: rrtableReducer },
-});
 ```
 
 ## Usage

@@ -41,7 +41,7 @@
  * @property {headersArray} headerArray - The content of column headers
  * @property {rowsContent} rowsContent - The content of the rows
  * @property {string} [title] - The title of the table
- * @property {bool} [filter] - Wether the filtering functionalitu is present
+ * @property {bool} [filter] - Wether the filtering functionality is present
  * @property {number[]} [entriesSelector] - Wether the selector of displayed rows by page is present, numbers in array represent each options for the selector.
  * @property {bool} [showEntries] - Wether the actual status along pages is displayed
  * @property {bool} [hideButtons] - True to hide buttons
