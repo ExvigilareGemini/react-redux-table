@@ -1,4 +1,4 @@
-# React-redux-table
+# [React-redux-table]
 
 ---
 
@@ -170,6 +170,7 @@ function App() {
 ```
 ![alt text](https://raw.githubusercontent.com/ExvigilareGemini/srcImage/main/img/rrtable-full-params.PNG)
 
+[react-redux-table]: https://www.npmjs.com/package/react-redux-table
 [react-redux]: https://github.com/reactjs/react-redux
 [react]: https://github.com/facebook/react
 [redux]: https://github.com/reactjs/redux
